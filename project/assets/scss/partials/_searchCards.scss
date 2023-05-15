@@ -1,0 +1,16 @@
+#searchCards{
+    .col-6{
+        height: 150px;
+        background-color: red;
+        overflow: hidden;
+        border-radius: 5px;
+        img{
+            width: 100px;
+            border-radius: 10px;
+            transform: rotate(30deg);
+            position: relative;
+            left: 100px;
+            top: 10px;
+        }
+    }
+}
