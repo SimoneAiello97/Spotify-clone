@@ -10,57 +10,92 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/scss/style.css">
     <title>Document</title>
   </head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col d-none d-xl-block col-xl-3"></div>
-        <div class="col col-xl-8"></div>
-        <div class="col d-none col-xl-1"></div>
-      </div>
-    </div>
 
-    <footer>
-      <nav class="navbar fixed-bottom navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-          </div>
+  <body class="d-flex">
+    <!-- inizio nav -->
+    <nav class="navbar navbar-expand-lg fixed-bottom">
+      <div class="container-fluid mb-lg-3">
+        <div class="d-none d-lg-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+            <path
+              d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+          </svg></div>
+        <a class="d-flex flex-column align-items-center" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path
+              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+          </svg>
+          <p>Home</p>
+        </a>
+        <a class="d-flex flex-column align-items-center" href="#" id="search-navbar"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          <p>Search</p>
+        </a>
+        <a class="d-flex flex-column align-items-center" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+            <path
+              d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
+          </svg>
+          <p>Library</p>
+        </a>
+        <div class="row d-none d-lg-block mt-3">
+          <p>Crea playlist</p>
+          <p>Brani che ti piacciono</p>
+          <p>I tuoi episodi</p>
         </div>
-      </nav>
+      </div>
+  
+      <div class="container d-none d-lg-block">
+        <div class="row">
+          <p>early stage emily syndrome(sett-ott 2022)</p>
+          <p>Be The Young</p>
+          <p>"..."cit. Kimiko (lug-ago 2022)</p>
+          <p>saggio vibes 💃[] 🩰</p>
+          <p>main character energy (mag-giu 2022)</p>
+          <p>that fucking mood 🔪☠️</p>
+          <p>An Emily Winchester kind of mood 🔪🖕</p>
+          <p>landing page (mar-apr 2022)</p>
+          <p>2021 lol</p>
+          <p>cosa cazzo vuol dire questa affermazione (gen-fe...)</p>
+          <p>honey and glass (nov-dic 2021)</p>
+          <p>(Revenge) Training Arc 🦍</p>
+          <p>Lidia 🤝 Emily</p>
+          <p>minecraft e nintendo switch (sep-oct 2021)</p>
+          <p>silvano d'orba? I hardly know her (lug ago 2021)</p>
+          <p>culo 2021</p>
+          <p>Frah Quintale Mix</p>
+          <p>Francesco Guccini Mix</p>
+          <p>honey and glass (nov-dic 2021)</p>
+          <p>non so</p>
+        </div>
+      </div>
+    </nav>
+  <!-- fine nav -->
+  <!-- inizio main -->
+    <main>
+      <div class="container">
+        <div class="row" id="rowPrincipal">
+        </div>
+      </div>
+    </main>
+    <!-- fine main -->
+    <!-- inizio footer play -->
+    <footer>
+      
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="script/search.js"></script>
     <script src="./script/home.js"></script>
   </body>
 </html>
