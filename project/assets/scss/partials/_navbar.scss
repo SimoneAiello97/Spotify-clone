@@ -1,10 +1,11 @@
 nav{
     color:#e8e8e8;
     background: #010101df;
+    padding-left: 1rem!important;
     .container-fluid{
         justify-content: space-around !important;
         p{
-            margin: 0
+            margin: 0.5em 0
         }
     }
     a{
@@ -24,13 +25,16 @@ nav{
             overflow: scroll !important;
         height: 100% !important;
         position: relative !important;
+        p{
+            margin-top: 1rem !important;
+        };
         }
         .container-fluid{
             display: block !important;
             a{
                 flex-direction: row !important;
                 p{
-                    padding-left: 1em;
+                    padding-left: 1em!important;
                 }
             }
         }
