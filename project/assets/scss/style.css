@@ -19,6 +19,7 @@ footer .container .row .col {
 }
 footer .container .row .col a {
   color: rgb(186, 186, 186);
+  margin-right: 4px;
 }
 footer .container .row .col p {
   margin-bottom: 0;
