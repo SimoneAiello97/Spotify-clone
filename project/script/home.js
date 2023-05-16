@@ -1,6 +1,6 @@
 const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
-const mainCol = document.querySelector("#rowPrincipal");
+const mainCol = document.querySelector(".cards-row");
 const heroSec = document.querySelector(".hero");
 let fetchedAlbums = 0;
 
@@ -42,7 +42,7 @@ const fetchAlbum = async () => {
   }
 };
 
-const getHeroCard = async () => {
+const bigCard = async () => {
   try {
     const randomAlbumId = Math.floor(Math.random() * 1000001);
     const res = await fetch(ALBUM_URL + randomAlbumId);
@@ -68,7 +68,7 @@ const getHeroCard = async () => {
           </a>
         </div>
         `;
-        heroSec.innerHTML += heroCard;
+        heroSec.innerHTML = heroCard;
         console.log("RES", album);
       }
     } else {
@@ -77,6 +77,10 @@ const getHeroCard = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const getHeroCard = async () => {
+  await bigCard();
 };
 
 const fetchRandomAlbums = async () => {
