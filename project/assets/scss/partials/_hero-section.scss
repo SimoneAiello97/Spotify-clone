@@ -1,0 +1,10 @@
+.hero{
+    min-height: 250px;
+    .card{
+        height: fit-content;
+        img{
+            width: 150px;
+            height: auto;
+        }
+    }
+}

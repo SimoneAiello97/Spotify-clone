@@ -154,4 +154,16 @@ nav a:hover {
 }
 #rowPrincipal #searchCards .card8 {
   background-color: #8c67ac;
+}
+
+.hero {
+  min-height: 250px;
+}
+.hero .card {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.hero .card img {
+  width: 150px;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
