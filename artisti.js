@@ -1,8 +1,14 @@
+const URLParams = new URLSearchParams(window.location.search);
+const selectedId = URLParams.get("id");
+const endpoint = "https://striveschool-api.herokuapp.com/api/deezer/artist/" + selectedId;
+const trackList = "https://striveschool-api.herokuapp.com/api/deezer/artist/" + selectedId + "/top?limit=50";
+
+
 window.onload = () => {
 
   fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/412')
   .then((res) => {
-    console.log('oggetto response', res)
+    console.log('oggetto response queen', res)
     
 	if (res.ok) {
       return res.json()
@@ -14,65 +20,80 @@ window.onload = () => {
        console.log("Atributi dell'Artista sono", artist)
        console.log("id " , artist.id)
        console.log("tracklist " , artist.tracklist)
-       let artistName = document.getElementById("artistName");
+       let artName = document.getElementById("artistName");
        let followers = document.getElementById("followers");
-       let artistImg = document.getElementById("artistThumbnail");
-       let monthlyListener = document.getElementById("monthlyListener");
-       let artistImgLikes = document.getElementById("artistImgLikes");
-       let artistImgLikes2 = document.getElementById("artistImgLikes2");
-       let artistLikeName = document.getElementById("artistLikeName");
-       artistName.textContent = artist.name;
-       artistLikeName.textContent = artist.name;
-       artistImgLikes.src = artist.picture;
-       artistImgLikes2.src = artist.picture;
-       followers.textContent = artist.nb_fan + " followers";
-       monthlyListener.textContent = artist.nb_fan + " ascoltatori mensili";
-       artistImg.style.backgroundImage = `url(${artist.picture_xl})`;     
+       let artImg = document.getElementById("artistThumbnail");
+       let artImgLikes = document.getElementById("artistImgLikes");
+       let artImgLikes2 = document.getElementById("artistImgLikes2");
+       let artLikeName = document.getElementById("artistLikeName");
+       artName.textContent = artist.name;
+       artLikeName.textContent = artist.name;
+       artImgLikes.src = artist.picture;
+       artImgLikes2.src = artist.picture;
+       followers.textContent = artist.nb_fan + " ascoltatori mensili";
+      //  monthlyListener.textContent = artist.nb_fan + " ascoltatori mensili";
+       artImg.style.backgroundImage = `url(${artist.picture_xl})`;     
   })
   .catch((error) => {
         console.log(error)
   })
 
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/412/top?limit=50")
+      .then((res) => {
+      console.log('oggetto response song queen', res)
 
-  
+      if (res.ok) {
+        return res.json()
+      } else {
+        throw new Error("Errore nell'esecuzione della richiesta")
+      }
+      })// fine primo then
+      .then( (tracklist) => {
+      console.log("Atributi song queen sono", tracklist)
+
+      let popularList = document.getElementById("popularList");
+				popularList.innerHTML = "";
+
+				tracklist.data.forEach((track) => {
+          let liElement = document.createElement("li");
+					liElement.classList.add("py-3");
+					let duration = track.duration;
+					let minutes = Math.floor(duration / 60);
+					let seconds = Math.floor(duration % 60)
+						.toString()
+						.padStart(2, "0");
+					let formattedDuration = `${minutes}:${seconds}`;
+					liElement.innerHTML = `
+						<div class="row row-cols-3 justify-content-center">
+						<div class="col-6 fs-11 d-flex align-items-center">
+							<img src="${track.album.cover_small}" alt="cover" width="35px" class="d-none d-md-inline"/>
+							<button type="button" class="btn text-light text-start trackBtn align-self-center text-truncate">${track.title}</button>
+						</div>
+						<div class="col-3 d-flex align-items-center justify-content-center">
+							<span class="d-none d-md-inline align-self-center">Rank ${track.rank}</span>
+						</div>
+						<div class="col-3 d-flex align-items-center justify-content-center">
+							<span class="align-self-center">${formattedDuration}</span>
+						</div>
+					</div>
+				  `
+          ;
+					
+					popularList.appendChild(liElement);
+        })
+
+      })// fine del secondo then
+
+      .catch((error) => {
+        console.log(error)
+       })//  fine catch
+   
+
+
 
 } // fine funzione onload
 
 
-
-// fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/412')
-//   .then((res) => {
-//     console.log('oggetto response', res)
-    
-// 	if (res.ok) {
-//       return res.json()
-//     } else {
-//       throw new Error("Errore nell'esecuzione della richiesta")
-//     }
-//   })
-//   .then((artist) => {
-//        console.log("Atributi dell'Artista sono", artist)
-//        console.log("id " , artist.id)
-//        console.log("tracklist " , artista.tracklist)
-//        let artistName = document.getElementById("artistName");
-//        let followers = document.getElementById("followers");
-//        let artistImg = document.getElementById("artistThumbnail");
-//        let monthlyListener = document.getElementById("monthlyListener");
-//        let artistImgLikes = document.getElementById("artistImgLikes");
-//        let artistImgLikes2 = document.getElementById("artistImgLikes2");
-//        let artistLikeName = document.getElementById("artistLikeName");
-//        artistName.textContent = artist.name;
-//        artistLikeName.textContent = artist.name;
-//        artistImgLikes.src = artist.picture;
-//        artistImgLikes2.src = artist.picture;
-//        followers.textContent = artist.nb_fan + " followers";
-//        monthlyListener.textContent = artist.nb_fan + " ascoltatori mensili";
-//        artistImg.style.backgroundImage = `url(${artist.picture_xl})`;     
-       
-//   })
-//   .catch((error) => {
-//         console.log(error)
-//   })
 
 // tracklist = "https://striveschool-api.herokuapp.com/api/deezer/artist/412/top?limit=50"
 
@@ -113,6 +134,4 @@ window.onload = () => {
         //     // questo parametro è l'_id della risorsa che intenderò modificare!
 
         //     let rowReference = document.getElementById('events-container') // <div class="row"></div>
-        //     rowReference.innerHTML += colTemplate // 
-
-       
+        //     rowReference.innerHTML += colTemplate //
