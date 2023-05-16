@@ -127,6 +127,7 @@ nav a:hover {
   border-radius: 5px;
   position: relative;
   color: #ffffff;
+  border: none;
 }
 #rowPrincipal #searchCards .card a {
   text-decoration: none;
@@ -176,4 +177,16 @@ nav a:hover {
 }
 #rowPrincipal #searchCards .card8 {
   background-color: #8c67ac;
+}
+
+.hero {
+  min-height: 250px;
+}
+.hero .card {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.hero .card img {
+  width: 150px;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
