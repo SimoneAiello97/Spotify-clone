@@ -52,18 +52,14 @@ const bigCard = async () => {
       const heroAlbum = await res.json();
       if (heroAlbum.id) {
         let heroCard = `
-        <div class="card">
+        <div class="card d-none d-md-block">
           <a href="${heroAlbum.id}">
             <div class="row">
-              <div class="col">
-                  <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col">
-                <div class="card-body">
-                  <h5 class="card-title">${heroAlbum.title}</h5>
-                  <p class="card-text">${heroAlbum.artist.name}</p>
-                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
+              <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">${heroAlbum.title}</h5>
+                <p class="card-text">${heroAlbum.artist.name}</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
               </div>
             </div>
           </a>
