@@ -74,6 +74,10 @@ nav a:hover {
   position: relative;
   color: #ffffff;
 }
+#searchCards .card a {
+  text-decoration: none;
+  color: #ffffff;
+}
 #searchCards .card img {
   width: 100px;
   border-radius: 10px;
@@ -87,21 +91,32 @@ nav a:hover {
     width: 80px;
   }
 }
+#searchCards .card h4 {
+  font-size: 25px;
+}
+@media screen and (max-width: 576px) {
+  #searchCards .card h4 {
+    font-size: 20px !important;
+  }
+}
 #searchCards .card2 {
   background-color: #1e3264;
 }
-#searchCards .card4 {
+#searchCards .card3 {
   background-color: #e8125c;
 }
-#searchCards .card5 {
+#searchCards .card4 {
   background-color: #158a08;
 }
+#searchCards .card5 {
+  background-color: #bc5800;
+}
 #searchCards .card6 {
-  background-color: #e8125c;
+  background-color: #d84000;
 }
 #searchCards .card7 {
-  background-color: #e8125c;
+  background-color: #cd1382;
 }
 #searchCards .card8 {
-  background-color: #e8125c;
+  background-color: #8c67ac;
 }/*# sourceMappingURL=style.css.map */

@@ -1,28 +1,5 @@
 let API = 'https://striveschool-api.herokuapp.com/api/deezer/search?q='
-const getSongs = function (query) {
-    fetch(API + query)
-        .then((res) => {
-            if (res.ok) {
-                return res.json()
-            } else {
-                throw new Error('Error getting the images')
-            }
-        })
-        .then((songs) => {
-            console.log(songs.data)
-            let data = songs.data
-            data.forEach(element => {
-                let newLi = document.createElement('li')
-                newLi.innerHTML = element.title + ' || ' + element.artist.name
-                let ul = document.getElementById('ul')
 
-                ul.appendChild(newLi)
-            });
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
 let searchBtn = document.getElementById('search-navbar')
 let mainSearch = document.getElementById('rowPrincipal')
 
@@ -42,50 +19,66 @@ searchBtn.addEventListener('click', () => {
             <div class="row ms-0" id="searchCards">
                 <div class="col-6 col-md-4">
                     <div class="card p-2 my-2">
-                        <h4>Podcast</h4>
-                        <img src="assets/imgs/search/image-2.jpg"> 
+                        <a href="#">
+                            <h4>Podcast</h4>
+                            <img src="assets/imgs/search/image-2.jpg"> 
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card2 p-2 my-2">
-                        <h4>Create per te</h4>
-                        <img src="assets/imgs/search/image-3.jpg">
+                        <a href="#">
+                            <h4>Create per te</h4>
+                            <img src="assets/imgs/search/image-42.png">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card3 p-2 my-2">
-                        <h4>Nuove uscite</h4>
-                        <img src="assets/imgs/search/image-4.jpg">
+                        <a href="#">
+                            <h4>Nuove uscite</h4>
+                            <img src="assets/imgs/search/image-26.jpg">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card4 p-2 my-2">
-                        <h4>Pop</h4>
-                        <img src="assets/imgs/search/image-5.jpg">
+                        <a href="#">
+                            <h4>Pop</h4>
+                            <img src="assets/imgs/search/image-47.jpg">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card5 p-2 my-2">
+                        <a href="#">
                         <h4>Hip Pop</h4>
-                        <img src="assets/imgs/search/image-6.jpg">
+                        <img src="assets/imgs/search/image-49.jpg">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card6 p-2 my-2">
+                    <a href="#">
                         <h4>Dance/Elettronica</h4>
                         <img src="assets/imgs/search/image-7.jpg">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card7 p-2 my-2">
+                    <a href="#">
                         <h4>Latina</h4>
-                        <img src="assets/imgs/search/image-8.jpg">
+                        <img src="assets/imgs/search/image-5.jpg">
+                        </a>
                     </div>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="card card8 p-2 my-2">
+                    <a href="#">
                         <h4>Classifiche</h4>
-                        <img src="assets/imgs/search/image-9.jpg">
+                        <img src="assets/imgs/search/image-14.jpg">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -93,12 +86,42 @@ searchBtn.addEventListener('click', () => {
         </div>
     `
     mainSearch.innerHTML = searchTemplate
+    let customInputField = document.querySelector('.input-group .form-control')
+    let customSearchButton = document.querySelector('#button-addon1')
+    customSearchButton.addEventListener('click', () => {
+    let allCard = document.querySelectorAll('.card h3')
+
+       getSongs(customInputField.value);
+    })
 })
-    // let customInputField = document.querySelector('.input-group .form-control')
-    // let customSearchButton = document.querySelector('#button-addon2')
-    // customSearchButton.addEventListener('click', () => {
-    //     let ul = document.getElementById('ul')
-    //     ul.innerHTML = ''
-    //     getSongs(customInputField.value);
-    // })
+
+    const getSongs = function (query) {
+    fetch(API + query)
+        .then((res) => {
+            if (res.ok) {
+                return res.json()
+            } else {
+                throw new Error('Error getting the images')
+            }
+        })
+        .then((songs) => {
+            console.log(songs.data)
+            let data = songs.data
+            let allCard = document.querySelectorAll('.card h4')
+            allLink = document.querySelectorAll('.card a')
+            allCard.forEach(h3=>{h3.classList.add('z-3')})
+            let imgCard = document.querySelectorAll('.card img')
+            console.log(allCard);
+           for (let i = 0; i < allCard.length; i++) {
+                allCard[i].innerHTML = data[i].title
+                imgCard[i].src = data[i].album.cover_medium
+                allLink[i].href = '../album.html?albumID='+ data[i].album.id
+           }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+
 
