@@ -2,7 +2,6 @@ const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
 const mainCol = document.querySelector(".cards-row");
 const heroSec = document.querySelector(".hero");
-let heroNum = 1;
 let fetchedAlbums = 0;
 
 const fetchAlbum = async () => {
