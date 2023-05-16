@@ -7,10 +7,12 @@ footer .container {
   margin-right: 0;
   margin-left: 0;
   max-width: 100%;
-  background-color: #2b2b2b;
 }
 footer .container .row {
   color: rgb(144, 140, 140);
+}
+footer .container .row .col {
+  background-color: #2b2b2b;
 }
 footer .container .row .col .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -66,7 +68,29 @@ nav a:hover {
   }
 }
 
-#searchCards .card {
+#rowPrincipal {
+  color: #ffffff;
+  background-color: #121212;
+}
+#rowPrincipal #button-addon1 {
+  background-color: #1b1b1b;
+  border: none;
+  color: #ffffff;
+}
+#rowPrincipal #button-addon1:hover {
+  color: white;
+}
+#rowPrincipal .form-control {
+  background-color: #1b1b1b;
+  border: none;
+}
+#rowPrincipal .form-control::-moz-placeholder {
+  color: #ffffff;
+}
+#rowPrincipal .form-control::placeholder {
+  color: #ffffff;
+}
+#rowPrincipal #searchCards .card {
   height: 120px;
   background-color: #e13300;
   overflow: hidden;
@@ -74,49 +98,52 @@ nav a:hover {
   position: relative;
   color: #ffffff;
 }
-#searchCards .card a {
+#rowPrincipal #searchCards .card a {
   text-decoration: none;
   color: #ffffff;
 }
-#searchCards .card img {
+#rowPrincipal #searchCards .card img {
   width: 100px;
   border-radius: 10px;
   transform: rotate(30deg);
   position: absolute;
   right: -20px;
   bottom: -10px;
+  z-index: 0 !important;
 }
 @media screen and (max-width: 576px) {
-  #searchCards .card img {
+  #rowPrincipal #searchCards .card img {
     width: 80px;
   }
 }
-#searchCards .card h4 {
+#rowPrincipal #searchCards .card h4 {
   font-size: 25px;
+  position: relative;
+  z-index: 222 !important;
 }
 @media screen and (max-width: 576px) {
-  #searchCards .card h4 {
+  #rowPrincipal #searchCards .card h4 {
     font-size: 20px !important;
   }
 }
-#searchCards .card2 {
+#rowPrincipal #searchCards .card2 {
   background-color: #1e3264;
 }
-#searchCards .card3 {
+#rowPrincipal #searchCards .card3 {
   background-color: #e8125c;
 }
-#searchCards .card4 {
+#rowPrincipal #searchCards .card4 {
   background-color: #158a08;
 }
-#searchCards .card5 {
+#rowPrincipal #searchCards .card5 {
   background-color: #bc5800;
 }
-#searchCards .card6 {
+#rowPrincipal #searchCards .card6 {
   background-color: #d84000;
 }
-#searchCards .card7 {
+#rowPrincipal #searchCards .card7 {
   background-color: #cd1382;
 }
-#searchCards .card8 {
+#rowPrincipal #searchCards .card8 {
   background-color: #8c67ac;
 }/*# sourceMappingURL=style.css.map */

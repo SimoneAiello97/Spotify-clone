@@ -17,6 +17,7 @@ searchBtn.addEventListener('click', () => {
                 <input type="text" class="form-control" placeholder="Cosa vuoi ascoltare?" aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
             <div class="row ms-0" id="searchCards">
+            <h3 class="text-center">Sfoglia tutto</h3>
                 <div class="col-6 col-md-4">
                     <div class="card p-2 my-2">
                         <a href="#">
@@ -109,7 +110,7 @@ searchBtn.addEventListener('click', () => {
             let data = songs.data
             let allCard = document.querySelectorAll('.card h4')
             allLink = document.querySelectorAll('.card a')
-            allCard.forEach(h3=>{h3.classList.add('z-3')})
+            allCard.forEach(h4=>{h4.classList.add('z-3')})
             let imgCard = document.querySelectorAll('.card img')
             console.log(allCard);
            for (let i = 0; i < allCard.length; i++) {
