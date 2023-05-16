@@ -25,6 +25,7 @@ footer .container .row .col p {
 }
 footer .container .row .col img {
   height: 50px;
+  padding: 5px;
 }
 
 nav {
