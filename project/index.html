@@ -92,12 +92,12 @@
     <footer class="d-block fixed-bottom">
         <div class="container">
             <div class="row ">
-                <div class="col">
+                <div class="d-none d-lg-block col">
                     <div class="row">
                         <div class="col-8">
                             <div class="row">
                                 <div class="col-3">
-                                    <img src="assets/imgs/main/image-1.jpg" alt="first.img">
+                                    <img class="rounded" src="assets/imgs/main/image-1.jpg" alt="first.img">
                                 </div>
                                 <div class="col-7">
                                     <p>Led Zeppelin</p>
@@ -111,7 +111,7 @@
                         <div class="col-4"></div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="d-none d-lg-block col">
                     <div class="row flex-column">
                         <div class="col text-center">
                             <a href=""><i class="bi bi-shuffle"></i></a>
@@ -128,8 +128,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col d-flex justify-content-end align-items-center">
+                <div class="d-none col d-lg-flex justify-content-end align-items-center">
                     <a href=""><i class="bi bi-mic"></i></a>
                     <a href=""><i class="bi bi-view-list"></i></a>
                     <a href=""><i class="bi bi-pc-display"></i></a>
@@ -137,7 +136,21 @@
                     <a href=""><input class="slider" type="range" min="1" max="100" value="50"></a>
                     <a href=""><i class="bi bi-arrows-angle-expand"></i></a>
                 </div>
-
+                <div class="col d-lg-none mx-2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="progressBar">
+                                <div id="titleContainer">
+                                    <span id="songTitle">Titolo canzone | nome autore</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"><a href=""><i class="bi bi-pc-display"></i></a>
+                            <a href=""><i class="bi bi-suit-heart"></i></a>
+                            <a id="playButton" href=""><i class="bi bi-play-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -146,6 +159,7 @@
         crossorigin="anonymous"></script>
     <script src="script/search.js"></script>
     <script src="./script/home.js"></script>
+    <script src="script/play-pause.js"></script>
 </body>
 
 </html>

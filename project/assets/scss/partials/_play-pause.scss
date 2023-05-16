@@ -1,7 +1,7 @@
 footer {
 
     @media screen and (max-width:991px) {
-        bottom: 70px !important;
+        bottom: 72px !important;
 
     }
 
@@ -13,6 +13,34 @@ footer {
 
             .col {
                 background-color: #2b2b2b;
+
+                .progressBar {
+                    width: 100%;
+                    height: 20px;
+                    background-color: #ccc;
+                    position: relative;
+
+                    #titleContainer {
+                        position: absolute;
+                        white-space: nowrap;
+                        overflow: hidden;
+
+                        #songTitle {
+                            display: inline-block;
+                            animation: marquee 10s linear infinite;
+                        }
+
+                        @keyframes marquee {
+                            0% {
+                                transform: translateX(100%);
+                            }
+
+                            100% {
+                                transform: translateX(-100%);
+                            }
+                        }
+                    }
+                }
 
                 a {
                     color: rgb(186, 186, 186);
