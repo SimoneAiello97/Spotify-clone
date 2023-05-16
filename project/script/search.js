@@ -6,7 +6,7 @@ let mainSearch = document.getElementById('rowPrincipal')
 searchBtn.addEventListener('click', () => {
     let searchTemplate = `
         <div class="container-fluid">
-        <h2>Cerca</h2>
+        <h2 class="my-4">Cerca</h2>
         <div class="row">
             <div class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">
