@@ -95,13 +95,15 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
     albumData.tracks.data.forEach( (track, index) => {
         trackListHeader.innerHTML += `
         <!-- inizio tracks -->
-        <div class="row my-2">
+        <div class="row my-2 mx-5 track">
             <div class="col-1 text-end my-auto">
                 <span class="pe-2">${index+=1}</span>
             </div>
             <div class="col-5">
                 <p class="m-0 text-light">${track.title}</p>
-                <p class="m-0">${track.artist.name}</p>
+                <a href="" class="track-artist-name">
+                    <p class="m-0">${track.artist.name}</p>
+                </a>
             </div>
             <div class="col text-end my-auto">
                 <p class="m-0">${track.rank.toLocaleString()}</p>
