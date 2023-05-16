@@ -26,10 +26,14 @@ function convertiSecondiPerBrano(secondi) {
     let secondiRimanenti = secondi % 60;
   
     let risultato = "";
-    if (minuti > 0) {
-      risultato += minuti + ":";
+    if( minuti < 10 ){
+        risultato += '0' + minuti + ":";
+    }else{
+        risultato += minuti + ":";
     }
-    if (secondiRimanenti > 0) {
+    if( secondiRimanenti < 10 ){
+        risultato += '0' + secondiRimanenti;
+    } else{
       risultato += secondiRimanenti;
     }
   
@@ -60,11 +64,11 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
 
     console.log(albumData);
     //inserisco la cover dell'album
-    albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg" />`;
+    albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" />`;
 
     //inserisco il titolo
     albumTitle.innerText = albumData.title;
-    albumTitle.style.fontSize = '4em';
+    albumTitle.style.fontSize = '3.5em';
 
     //inserisco le info dell'album
     albumInfo.innerHTML = `
@@ -96,7 +100,7 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
                 <span class="pe-2">${index+=1}</span>
             </div>
             <div class="col-5">
-                <p class="m-0">${track.title}</p>
+                <p class="m-0 text-light">${track.title}</p>
                 <p class="m-0">${track.artist.name}</p>
             </div>
             <div class="col text-end my-auto">
@@ -109,5 +113,6 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
         `
     } );
 
+// fine del then
 } )
 .catch( err => console.log(err) );

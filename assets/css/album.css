@@ -1,0 +1,13 @@
+main {
+  background-color: #121212;
+}
+main .play-button {
+  cursor: pointer;
+  color: #1ED760;
+}
+main i {
+  color: #A6A6A6;
+}
+main .track-list-header {
+  color: #A6A6A6;
+}/*# sourceMappingURL=album.css.map */
