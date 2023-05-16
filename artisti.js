@@ -17,12 +17,13 @@ window.onload = () => {
     }
   })
   .then((artist) => {
-       console.log("Atributi dell'Artista sono", artist)
-       console.log("id " , artist.id)
-       console.log("tracklist " , artist.tracklist)
-       
+       console.log("Atributi dell'Artista sono", artist )
+       console.log("id ", artist.id )
+       console.log("tracklist " , artist.tracklist )
        
        let colTemplate = `
+       <!-- primo blocco -->
+
        <div id="artistThumbnail"
        class="container-fluid d-flex flex-column justify-content-end text-light px-4" >
        <p  class="d-none d-lg-block">
@@ -37,6 +38,9 @@ window.onload = () => {
        <p id="artistName" class="fs-2 fw-bold">Artist Name</p>
        <p id="followers" class="d-none d-lg-block">Followers</p>
       </div>
+
+      <!-- secodoo blocco -->
+      
       <p id="monthlyListener" class="text-muted mb-0 d-lg-none p-4"></p>
       <div id="artistPlaybar" class="container-fluid d-flex justify-content-start p-4 mx-0">
           <button class="btn btn-primary rounded-circle px-2">
@@ -181,9 +185,6 @@ window.onload = () => {
         console.log(error)
        })//  fine catch
    
-
-
-
 } // fine funzione onload
 
 
