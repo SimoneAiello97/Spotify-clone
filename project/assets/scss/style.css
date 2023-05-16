@@ -36,9 +36,6 @@ footer .container .row .col .progressBar #titleContainer #songTitle {
   0% {
     transform: translateX(100%);
   }
-  25% {
-    transform: translateX(100%);
-  }
   100% {
     transform: translateX(-100%);
   }
