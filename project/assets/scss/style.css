@@ -104,6 +104,7 @@ nav a:hover {
   border-radius: 5px;
   position: relative;
   color: #ffffff;
+  border: none;
 }
 #rowPrincipal #searchCards .card a {
   text-decoration: none;
