@@ -87,6 +87,7 @@ nav a:hover {
 #rowPrincipal .form-control {
   background-color: #1b1b1b;
   border: none;
+  color: #ffffff;
 }
 #rowPrincipal .form-control::-moz-placeholder {
   color: #ffffff;
