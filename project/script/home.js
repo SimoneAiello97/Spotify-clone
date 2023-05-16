@@ -11,24 +11,23 @@ const fetchAlbum = async () => {
     if (res.ok) {
       const album = await res.json();
       if (album.id) {
-        // Check if the album has a valid ID
         let card = `
         <div class="card mb-3 col-6 col-md-4">
-        <a href="${album.id}">
-              <div class="row">
-                <div class="col-4">
-                    <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
+          <a href="${album.id}">
+            <div class="row">
+              <div class="col-4">
+                  <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-8">
-                  <div class="card-body">
-                      <h5 class="card-title">${album.title}</h5>
-                      <p class="card-text">${album.artist.name}</p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                  </div>
+                <div class="card-body">
+                  <h5 class="card-title">${album.title}</h5>
+                  <p class="card-text">${album.artist.name}</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
               </div>
-              </a>
             </div>
+          </a>
+        </div>
         `;
         mainCol.innerHTML += card;
         console.log("RES", album);
