@@ -2,6 +2,7 @@ const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
 const mainCol = document.querySelector(".cards-row");
 const heroSec = document.querySelector(".hero");
+let heroNum = 1;
 let fetchedAlbums = 0;
 
 const fetchAlbum = async () => {
@@ -44,23 +45,23 @@ const fetchAlbum = async () => {
 
 const bigCard = async () => {
   try {
-    const randomAlbumId = Math.floor(Math.random() * 1000001);
-    const res = await fetch(ALBUM_URL + randomAlbumId);
+    const heroId = Math.floor(Math.random() * 1000001);
+    const res = await fetch(ALBUM_URL + heroId);
     console.log("RES", res);
     if (res.ok) {
-      const album = await res.json();
-      if (album.id) {
+      const heroAlbum = await res.json();
+      if (heroAlbum.id) {
         let heroCard = `
         <div class="card">
-          <a href="${album.id}">
+          <a href="${heroAlbum.id}">
             <div class="row">
               <div class="col">
-                  <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
+                  <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col">
                 <div class="card-body">
-                  <h5 class="card-title">${album.title}</h5>
-                  <p class="card-text">${album.artist.name}</p>
+                  <h5 class="card-title">${heroAlbum.title}</h5>
+                  <p class="card-text">${heroAlbum.artist.name}</p>
                   <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
               </div>
@@ -70,6 +71,8 @@ const bigCard = async () => {
         `;
         heroSec.innerHTML = heroCard;
         console.log("RES", album);
+      } else {
+        window.location.reload();
       }
     } else {
       throw new Error("Errore nel recupero del prodotto!");
