@@ -12,25 +12,25 @@ const fetchAlbum = async () => {
       const album = await res.json();
       if (album.id) {
         // Check if the album has a valid ID
-        let card = document.createElement("div");
-        card.innerHTML = `
-          <a href="${album.id}"><div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">${album.title}</h5>
-                <p class="card-text">${album.artist.name}</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        let card = `
+        <div class="card mb-3 col-6 col-md-4">
+        <a href="${album.id}">
+              <div class="row">
+                <div class="col-4">
+                    <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                  <div class="card-body">
+                      <h5 class="card-title">${album.title}</h5>
+                      <p class="card-text">${album.artist.name}</p>
+                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
               </div>
+              </a>
             </div>
-          </div>
-          </a>
-        </div>
         `;
-        mainCol.appendChild(card);
+        mainCol.innerHTML += card;
         console.log("RES", album);
         fetchedAlbums++;
       }
@@ -43,7 +43,7 @@ const fetchAlbum = async () => {
 };
 
 const fetchRandomAlbums = async () => {
-  while (fetchedAlbums < 10) {
+  while (fetchedAlbums < 6) {
     await fetchAlbum();
   }
 };
