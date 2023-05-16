@@ -40,7 +40,8 @@ function convertiSecondiPerBrano(secondi) {
     return risultato;
 }
 
-const URL = new URLSearchParams(window.location.search);
+function createPageAlbum(){
+    const URL = new URLSearchParams(window.location.search);
 // const albumID = URL.get('albumID') || '75621062';
 const albumID = URL.get('albumID') || '129682632';
 
@@ -118,3 +119,50 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
 // fine del then
 } )
 .catch( err => console.log(err) );
+}
+
+window.onload = () => {
+
+    let albumContenitor = document.getElementById('album-contenitor');
+
+    albumContenitor.innerHTML += `
+    <div class="container-fluid text-white mb-4">
+        <div class="row">
+                <div class="col-3 pe-0 text-end my-auto" id="album-cover"></div>
+                <div class="col align-self-end">
+                    <h6 class="text-uppercase small">album</h6>
+                    <h1 id="album-title" class="fw-bold"></h1>
+                    <div class="d-flex" id="album-info"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark bg-opacity-75 text-light">
+            <div class="row mx-5">
+                <div class="col fs-3">
+                    <i class="bi bi-play-circle-fill fs-1 ms-1 play-button"></i>
+                    <i class="icon-row bi bi-heart mx-3"></i>
+                    <i class="icon-row bi bi-arrow-down-circle me-3"></i>
+                    <i class="icon-row bi bi-three-dots"></i>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col track-list-header" id="track-list-header">
+                    <div class="row border-bottom border-secondary pb-2 mx-5">
+                        <div class="col-1 text-end">
+                            <span class="pe-2 small">#</span>
+                        </div>
+                        <div class="col-5">
+                            <p class="m-0 text-uppercase small">titolo</p>
+                        </div>
+                        <div class="col text-end">
+                            <p class="m-0 text-uppercase small">riproduzioni</p>
+                        </div>
+                    <div class="col text-end small"><i class="bi bi-clock me-5"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+    createPageAlbum();
+}
