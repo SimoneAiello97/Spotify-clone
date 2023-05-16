@@ -66,17 +66,42 @@ nav a:hover {
   }
 }
 
-#searchCards .col-6 {
-  height: 150px;
-  background-color: red;
+#searchCards .card {
+  height: 120px;
+  background-color: #e13300;
   overflow: hidden;
   border-radius: 5px;
+  position: relative;
+  color: #ffffff;
 }
-#searchCards .col-6 img {
+#searchCards .card img {
   width: 100px;
   border-radius: 10px;
   transform: rotate(30deg);
-  position: relative;
-  left: 100px;
-  top: 10px;
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+}
+@media screen and (max-width: 576px) {
+  #searchCards .card img {
+    width: 80px;
+  }
+}
+#searchCards .card2 {
+  background-color: #1e3264;
+}
+#searchCards .card4 {
+  background-color: #e8125c;
+}
+#searchCards .card5 {
+  background-color: #158a08;
+}
+#searchCards .card6 {
+  background-color: #e8125c;
+}
+#searchCards .card7 {
+  background-color: #e8125c;
+}
+#searchCards .card8 {
+  background-color: #e8125c;
 }/*# sourceMappingURL=style.css.map */

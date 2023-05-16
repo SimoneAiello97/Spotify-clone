@@ -39,10 +39,54 @@ searchBtn.addEventListener('click', () => {
                 </button>
                 <input type="text" class="form-control" placeholder="Cosa vuoi ascoltare?" aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
-            <div class="row rows-col-lg-5" id="searchCards">
-                <div class="col-6">
-                    <h4>Podcast</h4>
-                    <img src="assets/imgs/search/image-1.jpeg">
+            <div class="row ms-0" id="searchCards">
+                <div class="col-6 col-md-4">
+                    <div class="card p-2 my-2">
+                        <h4>Podcast</h4>
+                        <img src="assets/imgs/search/image-2.jpg"> 
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card2 p-2 my-2">
+                        <h4>Create per te</h4>
+                        <img src="assets/imgs/search/image-3.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card3 p-2 my-2">
+                        <h4>Nuove uscite</h4>
+                        <img src="assets/imgs/search/image-4.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card4 p-2 my-2">
+                        <h4>Pop</h4>
+                        <img src="assets/imgs/search/image-5.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card5 p-2 my-2">
+                        <h4>Hip Pop</h4>
+                        <img src="assets/imgs/search/image-6.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card6 p-2 my-2">
+                        <h4>Dance/Elettronica</h4>
+                        <img src="assets/imgs/search/image-7.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card7 p-2 my-2">
+                        <h4>Latina</h4>
+                        <img src="assets/imgs/search/image-8.jpg">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card card8 p-2 my-2">
+                        <h4>Classifiche</h4>
+                        <img src="assets/imgs/search/image-9.jpg">
+                    </div>
                 </div>
             </div>
         </div>

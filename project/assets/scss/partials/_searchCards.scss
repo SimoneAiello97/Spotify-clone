@@ -1,16 +1,39 @@
 #searchCards{
-    .col-6{
-        height: 150px;
-        background-color: red;
+    .card{
+        height: 120px;
+        background-color: #e13300;
         overflow: hidden;
         border-radius: 5px;
+        position: relative;
+        color: #ffffff;
         img{
             width: 100px;
             border-radius: 10px;
             transform: rotate(30deg);
-            position: relative;
-            left: 100px;
-            top: 10px;
+            position: absolute;
+            right: -20px;
+            bottom: -10px;
+            @media screen and (max-width:576px) {
+                width: 80px;
+            }
         }
+    }
+    .card2{
+        background-color: #1e3264;
+    }
+    .card4{
+        background-color: #e8125c;
+    }
+    .card5{
+        background-color: #158a08;
+    }
+    .card6{
+        background-color: #e8125c;
+    }
+    .card7{
+        background-color: #e8125c;
+    }
+    .card8{
+        background-color: #e8125c;
     }
 }
