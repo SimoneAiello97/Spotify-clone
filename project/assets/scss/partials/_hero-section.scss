@@ -1,10 +1,29 @@
 .hero{
-    min-height: 250px;
+    min-height: 100px;
     .card{
+        background: linear-gradient(0deg, black, #1e1e1e);
+        .card-title{
+            text-transform: uppercase;
+            font-size: 50px;
+        }
+        .card-text{
+            color: #ffffff;
+        }
+        small{
+            color: grey !important;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        .row{
+        display: block;
         height: fit-content;
         img{
-            width: 150px;
-            height: auto;
+            width: 200px;
+            height: 100%;
+            float: left;
+            padding: 2rem 1rem;
         }
     }
+}}
 }

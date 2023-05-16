@@ -180,13 +180,45 @@ nav a:hover {
 }
 
 .hero {
-  min-height: 250px;
+  min-height: 100px;
 }
 .hero .card {
+  background: linear-gradient(0deg, black, #1e1e1e);
+}
+.hero .card .card-title {
+  text-transform: uppercase;
+  font-size: 50px;
+}
+.hero .card .card-text {
+  color: #ffffff;
+}
+.hero .card small {
+  color: grey !important;
+}
+.hero .card a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.hero .card a .row {
+  display: block;
   height: -moz-fit-content;
   height: fit-content;
 }
-.hero .card img {
-  width: 150px;
-  height: auto;
+.hero .card a .row img {
+  width: 200px;
+  height: 100%;
+  float: left;
+  padding: 2rem 1rem;
+}
+
+.cards-row .card {
+  background-color: #2d2d2d;
+  padding: 0;
+}
+.cards-row a {
+  text-decoration: none !important;
+  color: #ffffff;
+}
+.cards-row a img {
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

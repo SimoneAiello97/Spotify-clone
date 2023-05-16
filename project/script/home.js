@@ -3,6 +3,10 @@ const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const mainCol = document.querySelector(".cards-row");
 const heroSec = document.querySelector(".hero");
 let fetchedAlbums = 0;
+let buonasera = document.createElement('div');
+buonasera.className = "fs-4 my-2 bolder"
+        buonasera.textContent = 'Buonasera'
+        mainCol.prepend(buonasera)
 
 const fetchAlbum = async () => {
   try {
@@ -22,8 +26,6 @@ const fetchAlbum = async () => {
                 <div class="col-8">
                 <div class="card-body">
                   <h5 class="card-title">${album.title}</h5>
-                  <p class="card-text">${album.artist.name}</p>
-                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
               </div>
             </div>
@@ -56,10 +58,18 @@ const bigCard = async () => {
             <div class="row">
               <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
               <div class="card-body">
+              <p>Album</p>
                 <h5 class="card-title">${heroAlbum.title}</h5>
                 <p class="card-text">${heroAlbum.artist.name}</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
+                <p class="card-text"><small class="text-body-secondary">Ascolta il nuovo singolo di ${heroAlbum.artist.name}</small></p>
+                <button class="btn btn-success rounded-4 mx-2">Play</button>
+                <button class="btn btn-outline-light rounded-4 mx-2">Salva</button>
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path
+                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+            </svg></span>
+                </div>
             </div>
           </a>
         </div>
