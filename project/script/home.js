@@ -222,7 +222,7 @@ const bigCard = async () => {
       if (heroAlbum.id) {
         let heroCard = `
         <div class="card d-none d-md-block">
-          <a href="${heroAlbum.id}">
+          <a href="index.html?albumID=${heroAlbum.id}" onclick="createPageAlbum()">
             <div class="row">
               <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
               <div class="card-body">
