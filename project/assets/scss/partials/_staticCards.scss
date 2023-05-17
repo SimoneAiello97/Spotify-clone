@@ -14,9 +14,15 @@
         }    
         }
     }
+    .card-text{
+        height: 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
     .subtitle-card{
         color: #727272;
         height: 1.5rem;
         overflow: hidden;
+        white-space: wrap;
     }
 }

@@ -374,10 +374,16 @@ a {
     max-width: 150px;
   }
 }
+.static-cards .card-text {
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .static-cards .subtitle-card {
   color: #727272;
   height: 1.5rem;
   overflow: hidden;
+  white-space: wrap;
 }
 
 /* Stile generale della scrollbar */
