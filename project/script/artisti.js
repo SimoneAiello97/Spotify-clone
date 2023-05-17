@@ -112,7 +112,7 @@ window.onload = () => {
       </div>
 
       `;
-      let rowReference = document.getElementById('blockTop') // <div class="row"></div>
+      let rowReference = document.getElementById('main') // <div class="row"></div>
       rowReference.innerHTML += colTemplate ;
 
 
