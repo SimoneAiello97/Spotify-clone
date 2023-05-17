@@ -11,13 +11,13 @@ footer {
         .row {
             color: rgb(144, 140, 140);
 
+
             .col {
                 background-color: #2b2b2b;
 
                 .progressBar {
                     width: 100%;
                     height: 20px;
-                    background-color: #ccc;
                     position: relative;
                     top: 2px;
 
@@ -47,10 +47,18 @@ footer {
                 a {
                     color: rgb(186, 186, 186);
                     margin-right: 4px;
+
+                    i {
+                        &:hover {
+                            color: rgb(29, 185, 84);
+                        }
+                    }
                 }
 
                 p {
                     margin-bottom: 0;
+                    font-size: 10px;
+
                 }
 
                 img {
@@ -58,7 +66,13 @@ footer {
                     padding: 5px;
                 }
 
+
             }
         }
+    }
+
+    #pippo {
+        height: 1.5rem;
+        overflow: hidden;
     }
 }

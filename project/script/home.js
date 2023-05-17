@@ -215,10 +215,18 @@ const fetchAlbum = async () => {
 };
 
 let artistName = document.getElementById("songTitle");
-let playSong = function (prev, artist, song) {
+let dinamicNameArtist = document.getElementById("dinamicNameArtist");
+let dinamicSongTitle = document.getElementById("dinamicSongTitle");
+let dinamicImg = document.getElementById("dinamicImg");
+
+let playSong = function (prev, artist, song, img) {
   console.log(prev);
   new Audio(`${prev}`).play();
   artistName.innerText = song + " | " + artist;
+  dinamicNameArtist.innerText = artist + " ";
+  dinamicSongTitle.innerText = song;
+  dinamicImg.src = img;
+  dinamicImg.classList.remove("d-none");
 };
 
 const bigCard = async () => {
@@ -248,7 +256,7 @@ const bigCard = async () => {
                 </div>
                 </div>
                 </a>
-              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}')" class="btn btn-success rounded-4 mx-2">Play</button>
+              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}', '${heroAlbum.cover_small}')" class="btn btn-success rounded-4 mx-2">Play</button>
         </div>
         `;
         heroSec.innerHTML = heroCard;
