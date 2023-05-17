@@ -216,16 +216,27 @@ let artistName = document.getElementById('songTitle');
 let dinamicNameArtist = document.getElementById('dinamicNameArtist');
 let dinamicSongTitle = document.getElementById('dinamicSongTitle');
 let dinamicImg = document.getElementById('dinamicImg');
-
+let audioPlayer = null; 
+function stopAudio() {
+  if (audioPlayer) {
+    audioPlayer.pause();
+  }
+}
+let playBtn = document.querySelector('.play-pause-btn')
+  console.log(playBtn);
 let playSong = function (prev, artist, song, img) {
   console.log(prev);
-  new Audio(`${prev}`).play()
+  audioPlayer = new Audio(`${prev}`)
+  audioPlayer.play()
   artistName.innerText = song + ' | ' + artist;
   dinamicNameArtist.innerText = artist + ' ';
   dinamicSongTitle.innerText = song;
   dinamicImg.src = img;
   dinamicImg.classList.remove('d-none');
+  
+playBtn.addEventListener('click', stopAudio)
 }
+
 
 const bigCard = async () => {
   try {
@@ -245,17 +256,18 @@ const bigCard = async () => {
                 <h5 class="card-title">${heroAlbum.title}</h5>
                 <p class="card-text">${heroAlbum.artist.name}</p>
                 <p class="card-text"><small class="text-body-secondary">Ascolta il nuovo singolo di ${heroAlbum.artist.name}</small></p>
-                <button class="btn btn-outline-light rounded-4 mx-2">Salva</button>
+                
+                </div>
+                </div>
+                </a>
+              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}', '${heroAlbum.cover_small}')" class="btn btn-success rounded-4 mx-2 play-pause-btn">Play</button>
+        <button class="btn btn-outline-light rounded-4 mx-2">Salva</button>
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-three-dots" viewBox="0 0 16 16">
                 <path
                 d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                 </svg></span>
-                </div>
-                </div>
-                </a>
-              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}', '${heroAlbum.cover_small}')" class="btn btn-success rounded-4 mx-2">Play</button>
-        </div>
+              </div>
         `;
         heroSec.innerHTML = heroCard;
         // console.log("RES", album);
@@ -269,6 +281,7 @@ const bigCard = async () => {
     console.log(error);
   }
 };
+
 
 const getHeroCard = async () => {
   await bigCard();
