@@ -1,9 +1,12 @@
 let API = 'https://striveschool-api.herokuapp.com/api/deezer/search?q='
 
-let searchBtn = document.getElementById('search-navbar')
+let allSearchBtn = document.querySelectorAll('.search-navbar')
 let mainSearch = document.getElementById('rowPrincipal')
+let staticCards = document.querySelector('.static-cards')
 
+allSearchBtn.forEach((searchBtn)=>{
 searchBtn.addEventListener('click', () => {
+    staticCards.classList.add('d-none')
     let searchTemplate = `
         <div class="container-fluid">
         <h2 class="my-4">Cerca</h2>
@@ -91,11 +94,12 @@ searchBtn.addEventListener('click', () => {
     let customSearchButton = document.querySelector('#button-addon1')
     customSearchButton.addEventListener('click', () => {
     let allCard = document.querySelectorAll('.card h3')
-
+    
+        
        getSongs(customInputField.value);
     })
 })
-
+})
     const getSongs = function (query) {
     fetch(API + query)
         .then((res) => {
@@ -116,8 +120,9 @@ searchBtn.addEventListener('click', () => {
            for (let i = 0; i < allCard.length; i++) {
                 allCard[i].innerHTML = data[i].title
                 imgCard[i].src = data[i].album.cover_medium
-                allLink[i].href = '../album.html?albumID='+ data[i].album.id
+                allLink[i].href = 'index.html?albumID='+ data[i].album.id
            }
+       
         })
         .catch((err) => {
             console.log(err)

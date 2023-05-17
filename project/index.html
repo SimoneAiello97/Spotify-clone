@@ -14,48 +14,25 @@
 </head>
 
 <body class="d-md-flex full-width">
-    <!-- inizio nav -->
-    <nav class="navbar navbar-expand-lg fixed-bottom">
-        <div class="container-fluid mb-lg-3">
-            <div class="d-none d-lg-block mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                    <path
-                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                </svg>
-            </div>
-            <a class="d-flex flex-column align-items-center" href="index.html"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                </svg>
-                <p>Home</p>
-            </a>
-            <a class="d-flex flex-column align-items-center" href="#" id="search-navbar"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-                <p>Search</p>
-            </a>
-            <a class="d-flex flex-column align-items-center" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                    height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
-                    <path
-                        d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
-                </svg>
-                <p>Library</p>
-            </a>
-            <div class="row d-none d-lg-block mt-3">
-                <p>Crea playlist</p>
-                <p>Brani che ti piacciono</p>
-                <p>I tuoi episodi</p>
-            </div>
-        </div>
-
-        <div class="container d-none d-lg-block">
-            <div class="row">
-                <p>early stage emily syndrome(sett-ott 2022)</p>
+<!-- inizio nav -->
+<nav class="navbar fixed-bottom d-lg-none">
+    <div class="container-fluid">
+            <a class="navbar-brand d-flex flex-column text-center align-items-center" href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a class="navbar-brand d-flex flex-column text-center align-items-center search-navbar" href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+            <a class="navbar-brand d-flex flex-column text-center align-items-center" href="#"><i class="bi bi-collection"></i>Library</a>
+    </div>
+</nav>
+<nav class="navbar sidebar d-none d-lg-block px-1 py-2">
+    <div class="container-fluid"></div>
+        <div class="px-2 py-2"><a class="navbar-brand" href="#"><i class="fas fa-ellipsis-h"></i></a></div>
+        <div class="px-1 py-2"><a class="navbar-brand" href="index.html"><i class="px-1 fa-solid fa-house"></i>Home</a></div>
+        <div class="px-1 py-2"><a class="navbar-brand search-navbar" href="#"><i class="px-1 fa-solid fa-magnifying-glass"></i>Search</a></div>
+        <div class="px-1 py-2 mb-2"><a class="navbar-brand" href="#"><i class="px-1 bi bi-collection"></i>Library</a></div>
+        <div class="px-1 py-2"><i class="fa-regular fa-square-plus pe-1"></i>Crea playlist</div>
+        <div class="px-1 py-2"><i class="fa-solid fa-heart pe-1"></i>Brani che ti piacciono</div>
+        <div class="px-1 py-2 mb-3"><i class="fa-solid fa-bookmark pe-1"></i>I tuoi episodi</div>
+        <div class="row lista-playlist">
+            <p>early stage emily syndrome(sett-ott 2022)</p>
                 <p>Be The Young</p>
                 <p>"..."cit. Kimiko (lug-ago 2022)</p>
                 <p>saggio vibes 💃[] 🩰</p>
@@ -75,21 +52,186 @@
                 <p>Francesco Guccini Mix</p>
                 <p>honey and glass (nov-dic 2021)</p>
                 <p>non so</p>
-            </div>
         </div>
-    </nav>
-    <!-- fine nav -->
+    </div>
+</nav>
+<!-- fine nav -->
+
     <!-- inizio main -->
-    <main class="d-block w-100">
-        <div class="container-fluid m-0">
-            <div class="row d-flex justify-content-center" id="rowPrincipal">
-                <div class="hero row"></div>
+    <main>
+        <!-- topbar button -->
+        <div class="container-fluid sticky-top d-none d-md-block">
+            <div class="row btn-topbar d-flex justify-content-between py-2">
+                <div>
+                    <button class="rounded-circle btn" id="prev">&lt;</button>
+                    <button class="rounded-circle btn" id="next">&gt;</button>
+                </div>
+                <div>
+                    <button class="btn-profile btn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Lidia Nautilus...</button>
+            </div>
+                </div>
+        </div>
+        <!-- fine topbar button -->
+
+        <div class="container-fluid">
+            <div id="rowPrincipal">
+                <div class="hero row py-3 m-1 d-none d-lg-flex"></div>
                 <div class="row cards-row"></div>
             </div>
         </div>
-    </main>
-    
+
+        <!-- sezione statica -->
+        <div class="container-fluid static-cards pb-5">
+            <div class="row align-items-center example my-3">
+                <div class="d-flex justify-content-between fs-4 ps-3">
+                    Altro di ciò che ti piace
+                    <a class="d-flex fs-6 align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Visualizza Tutto
+                    </a>
+                </div>
+        
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 playlist">
+                <div class="col">
+                    <div class="card">
+                        <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-14.jpg" alt="">
+                        <p class="card-text ps-2">Top songs global</p>
+                        <p class="card-text ps-2 subtitle-card">La playlist più calde dell'anno</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-41.jpg" alt="">
+                        <p class="card-text ps-2">Best of Arab pop</p>
+                        <p class="card-text ps-2 subtitle-card">per il meme!</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-47.jpg" alt="">
+                        <p class="card-text ps-2">Today's Top Hits</p>
+                        <p class="card-text ps-2 subtitle-card">Le canzoni più ascoltate di oggi</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img class="img-fluid p-1 rounded-3" src="assets/imgs/main/image-7.jpg" alt="">
+                        <p class="card-text ps-2">Caffè del buongiorno</p>
+                        <p class="card-text ps-2 subtitle-card">Le migliori canzoni per iniziare la giornata</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img class="img-fluid p-1 rounded-3" src="assets/imgs/main/image-8.jpg" alt="">
+                        <p class="card-text ps-2">in tendenza</p>
+                        <p class="card-text ps-2 subtitle-card">Viral & Trending: le canzoni</p>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="collapseExample">
+                <div class="row playlist mt-2">
+                    <div class="col">
+                        <div class="card">
+                            <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-29.jpg" alt="">
+                            <p class="card-text ps-2">Classical Essential</p>
+                            <p class="card-text ps-2 subtitle-card">per gli amanti della musica classica</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-32.jpg" alt="">
+                            <p class="card-text ps-2">Nu-Funk</p>
+                            <p class="card-text ps-2 subtitle-card">La playlist più funk dell'anno</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-48.jpeg" alt="">
+                            <p class="card-text ps-2">Top Christian</p>
+                            <p class="card-text ps-2 subtitle-card">Gesù ti guarda anche quando balli</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="img-fluid p-1 rounded-3" src="assets/imgs/search/image-27.jpg" alt="">
+                            <p class="card-text ps-2">Party Hits</p>
+                            <p class="card-text ps-2 subtitle-card">per le tue migliori serate</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="img-fluid p-1 rounded-3" src="assets/imgs/main/image-16.jpg" alt="">
+                            <p class="card-text ps-2">Lavorare da casa</p>
+                            <p class="card-text ps-2 subtitle-card">ma insomma, ci hai visti?!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main> 
     <!-- fine main -->
+    <!-- aside -->
+    <aside>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+            data-bs-scroll="true" data-bs-backdrop="false">
+            <div class="offcanvas-header d-flex justify-content-between">
+                <h5 class="offcanvas-title " id="offcanvasRightLabel">Attività amici</h5>
+                <div>
+                    <i class="fa-solid fa-user-plus"></i>
+                    <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div class="friends d-flex justify-content-between">
+    
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div><img class="rounded-circle" src="assets/imgs/search/image-11.jpg" alt=""></div>
+                        <div>
+                            <p class="m-0">Charlie Hookham</p>
+                            <p class="m-0">In Camera • Yumi Zouma</p>
+                            <p class="m-0"><i class="fa-sharp fa-solid fa-compact-disc me-2"></i>EP III</p>
+                        </div>
+    
+                    </div>
+                    <div>4ore</div>
+                </div>
+    
+                <div class="friends d-flex justify-content-between">
+    
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div><img class="rounded-circle" src="assets/imgs/search/image-15.jpg" alt=""></div>
+                        <div>
+                            <p class="m-0">lightdark02</p>
+                            <p class="m-0">Aimed to KNI • Jade LeMac</p>
+                            <p class="m-0"><i class="fa-sharp fa-solid fa-compact-disc me-2"></i>Aimed to Kill</p>
+                        </div>
+    
+                    </div>
+                    <div>8ore</div>
+                </div>
+    
+                <div class="friends d-flex justify-content-between">
+    
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div ><img class="rounded-circle" src="assets/imgs/search/image-51.jpg" alt=""></div>
+                        <div>
+                            <p class="m-0">Valeria Traverso</p>
+                            <p class="m-0">New Kings • Sleeping Wolf</p>
+                            <p class="m-0"><i class="fa-solid fa-music me-2"></i>Twint Badass mood</p>
+                        </div>
+    
+                    </div>
+                    <div>3giorni</div>
+                </div>
+    
+            </div>
+        </div>
+    </aside>
+<!-- fine aside -->
+   
     <!-- inizio footer play -->
     <footer class="d-block fixed-bottom">
         <div class="container">
@@ -135,7 +277,7 @@
                     <a href=""><i class="bi bi-view-list"></i></a>
                     <a href=""><i class="bi bi-pc-display"></i></a>
                     <a href=""><i class="bi bi-volume-up"></i></a>
-                    <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)">
+                    <input type="range" id="vol" max="1" min="0" step="0.01" >
                     <a href=""><i class="bi bi-arrows-angle-expand"></i></a>
                 </div>
                 <div class="col d-lg-none mx-2">
@@ -161,6 +303,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/10bbec5402.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

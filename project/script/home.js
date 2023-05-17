@@ -147,7 +147,7 @@ function createPageAlbum() {
           <div class="col-5">
               <p class="m-0 text-light">${track.title}</p>
               <a href="" class="track-artist-name">
-                  <p class="m-0">${track.artist.name}</p>
+                  <p class="m-0"><a href="index.html?artistId=${track.artist.id}">${track.artist.name}</a></p>
               </a>
           </div>
           <div class="col text-end my-auto">
@@ -258,7 +258,7 @@ const artist = function () {
                                   alt="artist preview" />
                           </div>
                           <div class="col-10">
-                              <p class="lh-1 fs-11">Hai messo mi piace a *tot* brani</p>
+                              <p class="lh-1 fs-11">Hai messo mi piace a ${artist.nb_fan} brani</p>
                               <p class="lh-1 fs-11 text-muted">Di <span id="artistLikeName"
                                       class="lh-1 fs-11 text-muted"></span></p>
                           </div>
@@ -272,7 +272,7 @@ const artist = function () {
                           </div>
                           <div class="pt-3 ps-2">
                               <h5>Brani che ti piacciono</h5>
-                              <p class="lh-1 fs-11">Hai messo mi piace a *tot* brani</p>
+                              <p class="lh-1 fs-11">Hai messo mi piace a ${artist.nb_fan} brani</p>
                               <p id="artistLikesName" class="lh-1 fs-11 text-muted"></p>
                           </div>
                       </div>
@@ -345,7 +345,8 @@ const artist = function () {
 					</div>
 				  `
           ;
-					
+					let heroSec = document.querySelector(".hero");
+          heroSec.classList.add('d-none')
 					popularList.appendChild(liElement);
         })
 
@@ -377,18 +378,12 @@ const fetchAlbum = async () => {
       const album = await res.json();
       if (album.id) {
         let card = `
-        <div class="card mb-3 col-6 col-md-4">
+        <div class="col-6 col-md-4 my-2">
           <a href="index.html?albumID=${album.id}" onclick="createPageAlbum()">
-            <div class="row">
-              <div class="col-4">
-                  <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
+                <div class="d-flex align-items-center playlist-card">
+                    <img class="pe-3" src="${album.cover_medium}" alt="">
+                    <p class="name-playlist">${album.title}</p>
                 </div>
-                <div class="col-8">
-                <div class="card-body">
-                  <h5 class="card-title">${album.title}</h5>
-                </div>
-              </div>
-            </div>
           </a>
         </div>
         `;
@@ -439,27 +434,23 @@ const bigCard = async () => {
       const heroAlbum = await res.json();
       if (heroAlbum.id) {
         let heroCard = `
-        <div class="card d-none d-md-block">
-          <a href="index.html?albumID=${heroAlbum.id}" onclick="createPageAlbum()">
-            <div class="row">
-              <img src="${heroAlbum.cover_medium}" class="img-fluid rounded-start" alt="...">
-              <div class="card-body">
-              <p>Album</p>
-                <h5 class="card-title">${heroAlbum.title}</h5>
-                <a href="index.html?artistId=${heroAlbum.artist.id}" class="card-text">${heroAlbum.artist.name}</a>
-                <p class="card-text"><small class="text-body-secondary">Ascolta il nuovo singolo di ${heroAlbum.artist.name}</small></p>
-                
-                </div>
-                </div>
-                </a>
-              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}', '${heroAlbum.cover_small}')" class="btn btn-success rounded-4 mx-2 play-pause-btn">Play</button>
-        <button class="btn btn-outline-light rounded-4 mx-2">Salva</button>
-                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-three-dots" viewBox="0 0 16 16">
-                <path
-                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                </svg></span>
-              </div>
+              
+                <div class="col-3"><a href="index.html?albumID=${heroAlbum.id}" onclick="createPageAlbum()"><img src="${heroAlbum.cover_medium}" class="img-fluid" alt="album-image"> </a></div>
+                  <div class="col-9 d-flex flex-column justify-content-around">
+                    <div class="row"><a href="index.html?albumID=${heroAlbum.id}" onclick="createPageAlbum()">Album</a></div>
+                    <div class="row title"><a href="index.html?albumID=${heroAlbum.id}" onclick="createPageAlbum()">${heroAlbum.title}</a></div>
+                    <div class="row artist"><a href="index.html?artistId=${heroAlbum.artist.id}" class="card-text">${heroAlbum.artist.name}</a></div>
+                    <div class="row">Ascolta l'album di ${heroAlbum.artist.name}</div>
+                  
+              
+                    
+                    <div class="row d-flex align-items-center">
+                        <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}', '${heroAlbum.cover_small}')" class="btn rounded-4 btn-success me-2">Play</button>
+                        <button class="btn rounded-4 btn-outline-secondary me-2">Salva</button>
+                        <i class="fas fa-ellipsis"></i>
+                    </div>
+                    </div>
+
         `;
         heroSec.innerHTML = heroCard;
         // console.log("RES", album);
@@ -497,3 +488,12 @@ else {
   fetchRandomAlbums();
   getHeroCard();
 }
+
+let prevBtn = document.getElementById('prev');
+prevBtn.addEventListener('click', function(){
+  history.back();
+})
+let nextBtn = document.getElementById('next');
+nextBtn.addEventListener('click', function(){
+  history.forward()
+})

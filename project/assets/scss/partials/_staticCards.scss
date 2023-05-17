@@ -1,0 +1,22 @@
+.static-cards{
+    .col{
+        min-height: max-content;
+    }
+    .card{
+        padding: 10px;
+        background-color: #181818;
+        color: #ffffff;
+        height: max-content;
+        img{
+            margin-bottom: 1rem;
+        @media screen and (max-width:991px){
+            max-width: 150px;
+        }    
+        }
+    }
+    .subtitle-card{
+        color: #727272;
+        height: 1.5rem;
+        overflow: hidden;
+    }
+}
