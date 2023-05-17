@@ -42,8 +42,7 @@ function convertiSecondiPerBrano(secondi) {
 
 function createPageAlbum(){
     const URL = new URLSearchParams(window.location.search);
-// const albumID = URL.get('albumID') || '75621062';
-const albumID = URL.get('albumID') || '129682632';
+const albumID = URL.get('albumID');
 
 let albumCover = document.getElementById('album-cover');
 let albumTitle = document.getElementById('album-title');
