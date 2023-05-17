@@ -20,13 +20,14 @@ footer .container .row .col {
 footer .container .row .col .progressBar {
   width: 100%;
   height: 20px;
-  background-color: #ccc;
   position: relative;
+  top: 2px;
 }
 footer .container .row .col .progressBar #titleContainer {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
+  width: 100%;
 }
 footer .container .row .col .progressBar #titleContainer #songTitle {
   display: inline-block;
@@ -44,12 +45,20 @@ footer .container .row .col a {
   color: rgb(186, 186, 186);
   margin-right: 4px;
 }
+footer .container .row .col a i:hover {
+  color: rgb(29, 185, 84);
+}
 footer .container .row .col p {
   margin-bottom: 0;
+  font-size: 10px;
 }
 footer .container .row .col img {
   height: 50px;
   padding: 5px;
+}
+footer #pippo {
+  height: 1.5rem;
+  overflow: hidden;
 }
 
 nav {

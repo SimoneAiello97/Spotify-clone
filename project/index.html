@@ -95,21 +95,21 @@
             <div class="row ">
                 <div class="d-none d-lg-block col">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-9">
                             <div class="row">
                                 <div class="col-3">
-                                    <img class="rounded" src="assets/imgs/main/image-1.jpg" alt="first.img">
+                                    <img id="dinamicImg" class="rounded d-none" src="" alt="first.img">
                                 </div>
-                                <div class="col-7">
-                                    <p>Led Zeppelin</p>
-                                    <p>Iron Man</p>
+                                <div class="col-7 d-flex flex-column justify-content-center">
+                                    <p class="fw-bolder" id="dinamicNameArtist"></p>
+                                    <p id="dinamicSongTitle"></p>
                                 </div>
-                                <div class="col-2 mt-3">
+                                <div class="col mt-3">
                                     <i class="bi bi-suit-heart"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4"></div>
+                        <div class="col-3"></div>
                     </div>
                 </div>
                 <div class="d-none d-lg-block col">
@@ -139,17 +139,22 @@
                 </div>
                 <div class="col d-lg-none mx-2">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-8">
                             <div class="progressBar">
                                 <div id="titleContainer">
                                     <span id="songTitle"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col"><a href=""><i class="bi bi-pc-display"></i></a>
+
+
+                        <div class="col d-flex justify-content-evenly">
+                            <a href=""><i class="bi bi-pc-display"></i></a>
                             <a href=""><i class="bi bi-suit-heart"></i></a>
                             <a id="playButton" href=""><i class="bi bi-play-fill"></i></a>
                         </div>
+
+
                     </div>
                 </div>
             </div>
