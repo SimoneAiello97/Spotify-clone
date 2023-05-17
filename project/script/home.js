@@ -5,11 +5,11 @@ function convertiSecondi(secondi) {
 
   let risultato = "";
   if (ore > 0) {
-      if(ore == 1){
-          risultato += ore + " ora ";
-      }else{
-          risultato += ore + " ore ";
-      }
+    if (ore == 1) {
+      risultato += ore + " ora ";
+    } else {
+      risultato += ore + " ore ";
+    }
   }
   if (minuti > 0) {
     risultato += minuti + " min ";
@@ -26,21 +26,21 @@ function convertiSecondiPerBrano(secondi) {
   let secondiRimanenti = secondi % 60;
 
   let risultato = "";
-  if( minuti < 10 ){
-      risultato += '0' + minuti + ":";
-  }else{
-      risultato += minuti + ":";
+  if (minuti < 10) {
+    risultato += '0' + minuti + ":";
+  } else {
+    risultato += minuti + ":";
   }
-  if( secondiRimanenti < 10 ){
-      risultato += '0' + secondiRimanenti;
-  } else{
+  if (secondiRimanenti < 10) {
+    risultato += '0' + secondiRimanenti;
+  } else {
     risultato += secondiRimanenti;
   }
 
   return risultato;
 }
 
-function createPageAlbum(){
+function createPageAlbum() {
   const URL = new URLSearchParams(window.location.search);
   const albumID = URL.get('albumID');
 
@@ -86,35 +86,35 @@ function createPageAlbum(){
   `
 
 
-let albumCover = document.getElementById('album-cover');
-let albumTitle = document.getElementById('album-title');
-let albumInfo = document.getElementById('album-info');
-let trackListHeader = document.getElementById('track-list-header');
+  let albumCover = document.getElementById('album-cover');
+  let albumTitle = document.getElementById('album-title');
+  let albumInfo = document.getElementById('album-info');
+  let trackListHeader = document.getElementById('track-list-header');
 
-fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
-.then( res => {
-  if(res.ok){
-      return res.json();
-  }else{
-      throw new Error("Errore nella richiesta dell'album!");
-  }
-})
-.then( albumData => {
+  fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Errore nella richiesta dell'album!");
+      }
+    })
+    .then(albumData => {
 
-  //recupero l'anno dell'album
-  fullAlbumYear = new Date(albumData['release_date'])
-  fullAlbumYear = fullAlbumYear.getFullYear();
+      //recupero l'anno dell'album
+      fullAlbumYear = new Date(albumData['release_date'])
+      fullAlbumYear = fullAlbumYear.getFullYear();
 
-  console.log(albumData);
-  //inserisco la cover dell'album
-  albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" />`;
+      console.log(albumData);
+      //inserisco la cover dell'album
+      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" />`;
 
-  //inserisco il titolo
-  albumTitle.innerText = albumData.title;
-  albumTitle.style.fontSize = '3.5em';
+      //inserisco il titolo
+      albumTitle.innerText = albumData.title;
+      albumTitle.style.fontSize = '3.5em';
 
-  //inserisco le info dell'album
-  albumInfo.innerHTML = `
+      //inserisco le info dell'album
+      albumInfo.innerHTML = `
   <a href="${albumData.contributors.link}">
       <img src="${albumData.artist['picture_small']}" class="rounded-circle" width="25" />
   </a>
@@ -134,13 +134,13 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
   <span>${convertiSecondi(albumData.duration)}</span>
   `
 
-  // inserisco le tracce dell'album
-  albumData.tracks.data.forEach( (track, index) => {
-      trackListHeader.innerHTML += `
+      // inserisco le tracce dell'album
+      albumData.tracks.data.forEach((track, index) => {
+        trackListHeader.innerHTML += `
       <!-- inizio tracks -->
       <div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
-              <span class="pe-2">${index+=1}</span>
+              <span class="pe-2">${index += 1}</span>
           </div>
           <div class="col-5">
               <p class="m-0 text-light">${track.title}</p>
@@ -156,15 +156,15 @@ fetch('https://striveschool-api.herokuapp.com/api/deezer/album/' + albumID)
           </div>
       </div>
       `
-  } );
+      });
 
-// fine del then
-} )
-.catch( err => console.log(err) );
+      // fine del then
+    })
+    .catch(err => console.log(err));
 }
 
 const URL = new URLSearchParams(window.location.search);
-  const albumID = URL.get('albumID');
+const albumID = URL.get('albumID');
 
 const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
@@ -173,8 +173,8 @@ const heroSec = document.querySelector(".hero");
 let fetchedAlbums = 0;
 let buonasera = document.createElement('div');
 buonasera.className = "fs-4 my-2 bolder"
-        buonasera.textContent = 'Buonasera'
-        mainCol.prepend(buonasera)
+buonasera.textContent = 'Buonasera'
+mainCol.prepend(buonasera)
 
 const fetchAlbum = async () => {
   try {
@@ -212,6 +212,13 @@ const fetchAlbum = async () => {
   }
 };
 
+let artistName = document.getElementById('songTitle');
+let playSong = function (prev, artist, song) {
+  console.log(prev);
+  new Audio(`${prev}`).play()
+  artistName.innerText = song + ' | ' + artist;
+}
+
 const bigCard = async () => {
   try {
     const heroId = Math.floor(Math.random() * 1000001);
@@ -230,16 +237,16 @@ const bigCard = async () => {
                 <h5 class="card-title">${heroAlbum.title}</h5>
                 <p class="card-text">${heroAlbum.artist.name}</p>
                 <p class="card-text"><small class="text-body-secondary">Ascolta il nuovo singolo di ${heroAlbum.artist.name}</small></p>
-                <button class="btn btn-success rounded-4 mx-2">Play</button>
                 <button class="btn btn-outline-light rounded-4 mx-2">Salva</button>
                 <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-three-dots" viewBox="0 0 16 16">
                 <path
-                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-            </svg></span>
+                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                </svg></span>
                 </div>
-            </div>
-          </a>
+                </div>
+                </a>
+              <button onclick="playSong('${heroAlbum.tracks.data[0].preview}', '${heroAlbum.artist.name}', '${heroAlbum.tracks.data[0].title}')" class="btn btn-success rounded-4 mx-2">Play</button>
         </div>
         `;
         heroSec.innerHTML = heroCard;
@@ -266,9 +273,9 @@ const fetchRandomAlbums = async () => {
 };
 
 
-if(albumID){
+if (albumID) {
   createPageAlbum();
-}else{
+} else {
   fetchRandomAlbums();
   getHeroCard();
 }
