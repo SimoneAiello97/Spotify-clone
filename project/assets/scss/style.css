@@ -22,11 +22,13 @@ footer .container .row .col .progressBar {
   height: 20px;
   background-color: #ccc;
   position: relative;
+  top: 2px;
 }
 footer .container .row .col .progressBar #titleContainer {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
+  width: 100%;
 }
 footer .container .row .col .progressBar #titleContainer #songTitle {
   display: inline-block;
