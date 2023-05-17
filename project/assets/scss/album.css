@@ -25,4 +25,9 @@
 }
 #album-contenitor .track .track-artist-name:hover {
   color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }/*# sourceMappingURL=album.css.map */
