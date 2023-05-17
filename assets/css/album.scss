@@ -1,0 +1,37 @@
+#album-contenitor{
+    background-color: #121212;
+
+    .play-button{
+        cursor: pointer;
+        color: #1ED760;
+    }
+
+    .icon-row{
+        cursor: pointer;
+        color: #A6A6A6;
+        &:hover{
+            color: white;
+            fill: #1ED760;
+        }
+    }
+
+    .track-list-header{
+        color: #A6A6A6;
+    }
+
+    .track{
+
+        &:hover{
+            background-color: rgba($color: #121212, $alpha: 1.0);
+        }
+
+        .track-artist-name{
+            text-decoration: none;
+            color: #A6A6A6;
+            &:hover{
+                color: white;
+            }
+        }
+    }
+
+}
