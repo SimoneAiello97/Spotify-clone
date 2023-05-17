@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 991px) {
+  footer {
+    bottom: 72px !important;
+  }
+}
+footer .container {
+  max-width: 100%;
+}
+footer .container .row {
+  color: rgb(144, 140, 140);
+}
+footer .container .row .col {
+  background-color: #2b2b2b;
+}
+footer .container .row .col .progressBar {
+  width: 100%;
+  height: 20px;
+  background-color: #ccc;
+  position: relative;
+}
+footer .container .row .col .progressBar #titleContainer {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+}
+footer .container .row .col .progressBar #titleContainer #songTitle {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+footer .container .row .col a {
+  color: rgb(186, 186, 186);
+  margin-right: 4px;
+}
+footer .container .row .col p {
+  margin-bottom: 0;
+}
+footer .container .row .col img {
+  height: 50px;
+  padding: 5px;
+}
+
+nav {
+  color: #e8e8e8;
+  background: rgba(1, 1, 1, 0.8745098039);
+  padding-left: 1rem !important;
+}
+nav .container-fluid {
+  justify-content: space-around !important;
+}
+nav .container-fluid p {
+  margin: 0.5em 0;
+}
+nav a {
+  text-decoration: none;
+  color: #e8e8e8;
+}
+nav a:hover {
+  color: white;
+}
+@media screen and (min-width: 991px) {
+  nav {
+    position: relative !important;
+    height: 100vh;
+    width: 20%;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  nav .container {
+    overflow: scroll !important;
+    height: 100% !important;
+    position: relative !important;
+  }
+  nav .container p {
+    margin-top: 1rem !important;
+  }
+  nav .container-fluid {
+    display: block !important;
+  }
+  nav .container-fluid a {
+    flex-direction: row !important;
+  }
+  nav .container-fluid a p {
+    padding-left: 1em !important;
+  }
+}
+
+#rowPrincipal {
+  color: #ffffff;
+  background-color: #121212;
+}
+#rowPrincipal #button-addon1 {
+  background-color: #1b1b1b;
+  border: none;
+  color: #ffffff;
+}
+#rowPrincipal #button-addon1:hover {
+  color: white;
+}
+#rowPrincipal .form-control {
+  background-color: #1b1b1b;
+  border: none;
+  color: #ffffff;
+}
+#rowPrincipal .form-control::-moz-placeholder {
+  color: #ffffff;
+}
+#rowPrincipal .form-control::placeholder {
+  color: #ffffff;
+}
+#rowPrincipal #searchCards .card {
+  height: 120px;
+  background-color: #e13300;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  color: #ffffff;
+  border: none;
+}
+#rowPrincipal #searchCards .card a {
+  text-decoration: none;
+  color: #ffffff;
+}
+#rowPrincipal #searchCards .card img {
+  width: 100px;
+  border-radius: 10px;
+  transform: rotate(30deg);
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+  z-index: 0 !important;
+}
+@media screen and (max-width: 576px) {
+  #rowPrincipal #searchCards .card img {
+    width: 80px;
+  }
+}
+#rowPrincipal #searchCards .card h4 {
+  font-size: 25px;
+  position: relative;
+  z-index: 222 !important;
+}
+@media screen and (max-width: 576px) {
+  #rowPrincipal #searchCards .card h4 {
+    font-size: 20px !important;
+  }
+}
+#rowPrincipal #searchCards .card2 {
+  background-color: #1e3264;
+}
+#rowPrincipal #searchCards .card3 {
+  background-color: #e8125c;
+}
+#rowPrincipal #searchCards .card4 {
+  background-color: #158a08;
+}
+#rowPrincipal #searchCards .card5 {
+  background-color: #bc5800;
+}
+#rowPrincipal #searchCards .card6 {
+  background-color: #d84000;
+}
+#rowPrincipal #searchCards .card7 {
+  background-color: #cd1382;
+}
+#rowPrincipal #searchCards .card8 {
+  background-color: #8c67ac;
+}
+
+.hero {
+  min-height: 100px;
+}
+.hero .card {
+  background: linear-gradient(0deg, black, #1e1e1e);
+}
+.hero .card .card-title {
+  text-transform: uppercase;
+  font-size: 50px;
+}
+.hero .card .card-text {
+  color: #ffffff;
+}
+.hero .card small {
+  color: grey !important;
+}
+.hero .card a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.hero .card a .row {
+  display: block;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.hero .card a .row img {
+  width: 200px;
+  height: 100%;
+  float: left;
+  padding: 2rem 1rem;
+}
+
+.cards-row .card {
+  background-color: #2d2d2d;
+  padding: 0;
+}
+.cards-row a {
+  text-decoration: none !important;
+  color: #ffffff;
+}
+.cards-row a img {
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
