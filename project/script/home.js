@@ -149,7 +149,7 @@ function createPageAlbum() {
               <span class="pe-2">${index + 1}</span>
           </div>
           <div class="col-11 col-md-5">
-              <p id="songP_${index}" class="m-0 text-light">${track.title}</p>
+              <p id="songP" class="m-0 text-light">${track.title}</p>
               <p class="track-artist-name">
                  <a href="index.html?artistId=${track.artist.id}">${
           track.artist.name
@@ -169,12 +169,12 @@ function createPageAlbum() {
         albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`;
 
         const songP = document.querySelectorAll(`#songP_${index}`);
-        songP.forEach((element) => {
-          element.addEventListener("click", () => {
-            playSong(tracksArray[index].prev);
-          });
-          tracksArray.push(track.preview);
-        });
+        // songP.forEach((element) => {
+        //   element.addEventListener("click", () => {
+        //     playSong(tracksArray[index].prev);
+        //   });
+        //   tracksArray.push(track.preview);
+        // });
       });
 
       trackIndex = 0;
@@ -611,9 +611,13 @@ let dinamicNameArtist = document.getElementById("dinamicNameArtist");
 let dinamicSongTitle = document.getElementById("dinamicSongTitle");
 let dinamicImg = document.getElementById("dinamicImg");
 let audioPlayer = null;
+
+let ultimaPosizione = 0;
+
 function stopAudio() {
   if (audioPlayer) {
     audioPlayer.pause();
+    ultimaPosizione = audioPlayer.currentTime;
   }
 }
 
@@ -625,8 +629,9 @@ let playSong = function (prev, artist, song, img) {
   playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
   console.log(prev);
-  audioPlayer.play();
   audioPlayer = new Audio(`${prev}`);
+  audioPlayer.currentTime = ultimaPosizione
+  audioPlayer.play();
   artistName.innerText = song + " | " + artist;
   dinamicNameArtist.innerText = artist + " ";
   dinamicSongTitle.innerText = song;
