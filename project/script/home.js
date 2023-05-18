@@ -144,7 +144,7 @@ function createPageAlbum() {
       albumData.tracks.data.forEach((track, index) => {
         trackListHeader.innerHTML += `
       <!-- inizio tracks -->
-      <div class="row my-2 mx-5 track">
+      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}')" class="singleSong"><div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
               <span class="pe-2">${index += 1}</span>
           </div>
@@ -162,7 +162,7 @@ function createPageAlbum() {
           <div class="col text-end d-none d-md-block my-auto">
               <p class="m-0 me-5">${convertiSecondiPerBrano(track.duration)}</p>
           </div>
-      </div>
+      </div></button>
       `;
           tracksArray.push(track.preview);
         

@@ -463,6 +463,13 @@ footer #pippo {
   color: white;
 }
 
+.singleSong {
+  background: none;
+  border: none;
+  width: 100%;
+  color: #A6A6A6;
+}
+
 #artistThumbnail {
   height: 400px;
   background-repeat: no-repeat;
