@@ -67,10 +67,10 @@ input[type="range"]::-ms-thumb {
     .progress{
         height: 0.2rem;
     }
+    
     .progress-bar{
         background-color: green;
-        animation: pippo 30s;
-        animation-play-state: paused;
+        animation: pippo 30s linear;
         @keyframes pippo {
             0%{
                 width: 0%;
