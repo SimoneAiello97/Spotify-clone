@@ -1,5 +1,5 @@
 let progressBar = document.querySelector(".progress-bar");
-const running = progressBar.style.animationPlayState === "running";
+let running = progressBar.style.animationPlayState === "running";
 function convertiSecondi(secondi) {
   let ore = Math.floor(secondi / 3600);
   let minuti = Math.floor((secondi % 3600) / 60);
@@ -88,7 +88,7 @@ function createPageAlbum() {
       </div>
   </div>
   `;
-  
+
   let albumCover = document.getElementById("album-cover");
   let albumTitle = document.getElementById("album-title");
   let albumInfo = document.getElementById("album-info");
@@ -110,7 +110,6 @@ function createPageAlbum() {
       console.log(albumData);
       //inserisco la cover dell'album
       albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" />`;
-
 
       //inserisco il titolo
       albumTitle.innerText = albumData.title;
@@ -147,10 +146,10 @@ function createPageAlbum() {
       <!-- inizio tracks -->
       <div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
-              <span class="pe-2">${(index += 1)}</span>
+              <span class="pe-2">${index + 1}</span>
           </div>
           <div class="col-11 col-md-5">
-              <p class="m-0 text-light">${track.title}</p>
+              <p id="songP_${index}" class="m-0 text-light">${track.title}</p>
               <p class="track-artist-name">
                  <a href="index.html?artistId=${track.artist.id}">${
           track.artist.name
@@ -165,11 +164,18 @@ function createPageAlbum() {
           </div>
       </div>
       `;
-      let pluto = pippo()
-  let albumHero = document.querySelector('.album-hero')
-  albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`
-      tracksArray.push(track.preview);
-      });
+        let pluto = pippo();
+        let albumHero = document.querySelector(".album-hero");
+        albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`;
+
+      //   const songP = document.querySelectorAll(`#songP_${index}`);
+      //   songP.forEach((element) => {
+      //     element.addEventListener("click", () => {
+      //       playSong(tracksArray[index].prev);
+      //     });
+      //     tracksArray.push(track.preview);
+      //   });
+      // });
 
       trackIndex = 0;
       let prevBtn = document.getElementById("prev-song");
@@ -197,12 +203,12 @@ function createPageAlbum() {
         console.log(prev);
         audioPlayer = new Audio(`${prev}`);
         audioPlayer.play();
+
         artistName.innerText = song + " | " + artist;
         dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
         dinamicImg.classList.remove("d-none");
-        progressBar.style.animationPlayState = running ? "paused" : "running";
 
         playBtn.addEventListener("click", stopAudio);
       };
@@ -250,8 +256,6 @@ function createPageAlbum() {
             albumData.tracks.data[trackIndex].title,
             albumData.tracks.data[trackIndex].album["cover_small"]
           );
-          progressBar.style.animationPlayState = running ? "paused" : "running";
-          console.log("riproduco il brano con indice: ", trackIndex);
         }
       });
 
@@ -261,7 +265,7 @@ function createPageAlbum() {
           trackIndex -= 1;
           if (trackIndex < 0) {
             trackIndex = tracksArray.length - 1;
-            progressBar.classList.remove("animation").add("animation");
+
             playSong(
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
@@ -277,9 +281,7 @@ function createPageAlbum() {
               albumData.tracks.data[trackIndex].title,
               albumData.tracks.data[trackIndex].album["cover_small"]
             );
-            progressBar.style.animationPlayState = running
-              ? "paused"
-              : "running";
+
             console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         } else {
@@ -306,6 +308,9 @@ function createPageAlbum() {
             console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         }
+        progressBar.style.animation = "none";
+        progressBar.offsetHeight;
+        progressBar.style.animation = null;
       });
 
       nextBtn.addEventListener("click", () => {
@@ -357,6 +362,9 @@ function createPageAlbum() {
             console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         }
+        progressBar.style.animation = "none";
+        progressBar.offsetHeight;
+        progressBar.style.animation = null;
       });
 
       // fine del then
@@ -617,8 +625,8 @@ let playSong = function (prev, artist, song, img) {
   playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
   console.log(prev);
-  audioPlayer = new Audio(`${prev}`);
   audioPlayer.play();
+  audioPlayer = new Audio(`${prev}`);
   artistName.innerText = song + " | " + artist;
   dinamicNameArtist.innerText = artist + " ";
   dinamicSongTitle.innerText = song;
@@ -675,6 +683,9 @@ const bigCard = async () => {
             stopAudio();
             playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
             console.log("canzone stoppata");
+            progressBar.style.animationPlayState = "running"
+              ? "paused"
+              : "running";
           } else {
             playSong(
               heroAlbum.tracks.data[homeTracksIndex].preview,
@@ -684,7 +695,9 @@ const bigCard = async () => {
             );
 
             playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-
+            progressBar.style.animationPlayState = running
+              ? "paused"
+              : "running";
             console.log("riproduco il brano con indice: ", homeTracksIndex);
           }
         });
@@ -694,6 +707,9 @@ const bigCard = async () => {
             stopAudio();
             playPauseBtn2.innerHTML = '<i class="fa-solid fa-play"></i>';
             console.log("canzone stoppata");
+            progressBar.style.animationPlayState = running
+              ? "paused"
+              : "running";
           } else {
             playSong(
               heroAlbum.tracks.data[homeTracksIndex].preview,
@@ -703,7 +719,9 @@ const bigCard = async () => {
             );
 
             playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
-
+            progressBar.style.animationPlayState = running
+              ? "paused"
+              : "running";
             console.log("riproduco il brano con indice: ", homeTracksIndex);
           }
         });
@@ -769,6 +787,9 @@ const bigCard = async () => {
               );
             }
           }
+          progressBar.style.animation = "none";
+          progressBar.offsetHeight; // Trigger reflow to reset the animation
+          progressBar.style.animation = null;
         });
 
         nextTrackBtn.addEventListener("click", () => {
@@ -832,6 +853,9 @@ const bigCard = async () => {
               );
             }
           }
+          progressBar.style.animation = "none";
+          progressBar.offsetHeight; // Trigger reflow to reset the animation
+          progressBar.style.animation = null;
         });
 
         // console.log("RES", album);
