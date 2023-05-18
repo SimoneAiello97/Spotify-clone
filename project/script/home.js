@@ -167,6 +167,7 @@ function createPageAlbum() {
       let prevBtn = document.getElementById('prev-song');
       let playPauseBtn = document.querySelector('a.play-pause-btn');
       let nextBtn = document.getElementById('next-song');
+      let playPauseBtn2 = document.getElementById('playButton')
 
       let playBtn = document.getElementById('play-btn')
       console.log(playBtn);
@@ -185,7 +186,7 @@ function createPageAlbum() {
         footerDisplay.classList.remove('d-none');
 
         playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-
+        playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
         console.log(prev);
         audioPlayer = new Audio(`${prev}`)
         audioPlayer.play()
@@ -209,6 +210,17 @@ function createPageAlbum() {
         if(!audioPlayer.paused){
           stopAudio();
           playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+          console.log('canzone stopppata');
+        }else{
+          playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
+
+          console.log('riproduco il brano con indice: ', trackIndex);
+        }
+      })
+      playPauseBtn2.addEventListener('click', () => {
+        if(!audioPlayer.paused){
+          stopAudio();
+          playPauseBtn2.innerHTML = '<i class="bi bi-play-fill"></i>';
           console.log('canzone stopppata');
         }else{
           playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
@@ -592,9 +604,10 @@ const bigCard = async () => {
 
         // recupero i bottoni del player
         let prevTrackBtn = document.getElementById('prev-song');
-        let playPauseBtn = document.querySelector('a.play-pause-btn');
+        let playPauseBtn = document.querySelector('.play-pause-btn');
         let nextTrackBtn = document.getElementById('next-song');
-
+        let playPauseBtn2 = document.getElementById('playButton')
+        
         playPauseBtn.addEventListener('click', () => {
           if(!audioPlayer.paused){
             stopAudio();
@@ -608,6 +621,21 @@ const bigCard = async () => {
             console.log('riproduco il brano con indice: ', homeTracksIndex);
           }
         })
+      
+      playPauseBtn2.addEventListener('click', () => {
+        if(!audioPlayer.paused){
+          stopAudio();
+          playPauseBtn2.innerHTML = '<i class="bi bi-play-fill"></i>'
+          console.log('canzone stoppata');
+        }else{
+          playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])          
+
+          playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>'
+
+          console.log('riproduco il brano con indice: ', homeTracksIndex);
+        }
+      })
+    
 
         prevTrackBtn.addEventListener('click', () => {
           if(!audioPlayer.paused){
