@@ -107,22 +107,26 @@ footer input[type=range] {
   -moz-appearance: none;
   appearance: none;
   height: 10px;
-  background-color: #dddddd; /* Colore dello sfondo */
+  background-color: #dddddd;
+  /* Colore dello sfondo */
   border-radius: 5px;
   outline: none;
 }
 footer input[type=range]::-webkit-slider-runnable-track {
   border-radius: 10px;
-  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+  background-color: rgb(29, 185, 84);
+  /* Colore dell'area selezionabile (range) */
 }
 footer input[type=range]::-moz-range-track {
   height: 10px;
-  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+  background-color: rgb(29, 185, 84);
+  /* Colore dell'area selezionabile (range) */
   border-radius: 5px;
 }
 footer input[type=range]::-ms-track {
   height: 10px;
-  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+  background-color: rgb(29, 185, 84);
+  /* Colore dell'area selezionabile (range) */
   border-radius: 5px;
 }
 footer input[type=range]::-webkit-slider-thumb {
