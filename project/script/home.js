@@ -50,9 +50,9 @@ function createPageAlbum() {
 
   main.innerHTML = `
   <div class="container-fluid text-white mb-4">
-      <div class="row">
-              <div class="col-3 pe-0 text-end my-auto" id="album-cover"></div>
-              <div class="col align-self-end">
+      <div class="row album-hero p-1 py-3">
+              <div class="col-12 col-md-3 pe-0 text-center my-auto" id="album-cover"></div>
+              <div class="col-12 col-md-9 align-self-center pt-2">
                   <h6 class="text-uppercase small">album</h6>
                   <h1 id="album-title" class="fw-bold"></h1>
                   <div class="d-flex" id="album-info"></div>
@@ -77,10 +77,10 @@ function createPageAlbum() {
                       <div class="col-5">
                           <p class="m-0 text-uppercase small">titolo</p>
                       </div>
-                      <div class="col text-end">
+                      <div class="col text-end d-none d-md-block">
                           <p class="m-0 text-uppercase small">riproduzioni</p>
                       </div>
-                  <div class="col text-end small"><i class="bi bi-clock me-5"></i></div>
+                  <div class="col text-end small d-none d-md-block"><i class="bi bi-clock me-5"></i></div>
               </div>
           </div>
       </div>
@@ -146,16 +146,16 @@ function createPageAlbum() {
           <div class="col-1 text-end my-auto">
               <span class="pe-2">${(index += 1)}</span>
           </div>
-          <div class="col-5">
+          <div class="col-11 col-md-5">
               <p class="m-0 text-light">${track.title}</p>
-              <a href="" class="track-artist-name">
-                  <p class="m-0"><a href="index.html?artistId=${track.artist.id}">${track.artist.name}</a></p>
-              </a>
+              <p class="track-artist-name">
+                 <a href="index.html?artistId=${track.artist.id}">${track.artist.name}</a>
+              </p>
           </div>
-          <div class="col text-end my-auto">
+          <div class="col text-end my-auto d-none d-md-block">
               <p class="m-0">${track.rank.toLocaleString()}</p>
           </div>
-          <div class="col text-end my-auto">
+          <div class="col text-end d-none d-md-block my-auto">
               <p class="m-0 me-5">${convertiSecondiPerBrano(track.duration)}</p>
           </div>
       </div>
@@ -339,7 +339,7 @@ const artist = function () {
                       d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
               </svg>
           </button>
-          <button class="btn btn-outline-light mx-3 my-2 fs-11 py-0 d-none d-lg-block">
+          <button type="checkbox" class="btn btn-outline-light mx-3 my-2 fs-11 py-0 d-none d-lg-block">
               <small>FOLLOWING</small>
           </button>
           <button class="btn text-light align-items-center lh-1 d-none d-lg-block">
@@ -403,7 +403,11 @@ const artist = function () {
       `;
       let rowReference = document.getElementById('rowPrincipal') // <div class="row"></div>
       rowReference.innerHTML += colTemplate ;
-
+      let mainCol = document.querySelector(".cards-row");
+       let hero = document.querySelector(".hero");
+       mainCol.innerHTML = ''
+       hero.classList.remove('d-lg-flex')
+       hero.classList.add('d-none')
 
       let artName = document.getElementById("artistName");
       let followers = document.getElementById("followers");
