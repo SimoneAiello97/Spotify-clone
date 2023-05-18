@@ -1,10 +1,27 @@
 footer {
 
-    @media screen and (max-width:991px) {
-        bottom: 72px !important;
-
+    @media screen and (max-width:576px) {
+        bottom: 60px !important;
     }
-
+    @media screen and (min-width:576px) and (max-width:991px) {
+        bottom: 75px !important;
+    }
+    .progress{
+        height: 0.8rem;
+    }
+    .progress-bar{
+        background-color: green;
+        animation: pippo 30s;
+        animation-play-state: paused;
+        @keyframes pippo {
+            0%{
+                width: 0%;
+            }
+            100%{
+                width: 100%;
+            }
+        }
+    }
     .container {
         max-width: 100%;
 
@@ -20,6 +37,7 @@ footer {
                     height: 20px;
                     position: relative;
                     top: 2px;
+                    
 
                     #titleContainer {
                         position: absolute;

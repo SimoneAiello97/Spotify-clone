@@ -1,3 +1,7 @@
+
+
+let progressBar = document.querySelector('.progress-bar')
+const running = progressBar.style.animationPlayState === 'running'
 function convertiSecondi(secondi) {
   let ore = Math.floor(secondi / 3600);
   let minuti = Math.floor((secondi % 3600) / 60);
@@ -87,6 +91,8 @@ function createPageAlbum() {
   </div>
   `;
 
+  let albumHero = document.querySelector('.album-hero')
+  albumHero.style.background = `linear-gradient(0deg, black ,${sessionStorage.getItem('COLOR')})`
   let albumCover = document.getElementById("album-cover");
   let albumTitle = document.getElementById("album-title");
   let albumInfo = document.getElementById("album-info");
@@ -177,6 +183,7 @@ function createPageAlbum() {
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
+          progressBar.style.animationPlayState = 'paused' ;
         }
       }
 
@@ -195,6 +202,7 @@ function createPageAlbum() {
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
         dinamicImg.classList.remove('d-none');
+        progressBar.style.animationPlayState = running?'paused' : 'running';
         
       playBtn.addEventListener('click', stopAudio)
       }
@@ -210,10 +218,11 @@ function createPageAlbum() {
         if(!audioPlayer.paused){
           stopAudio();
           playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
-          console.log('canzone stopppata');
+          console.log('canzone stoppata');
+          progressBar.style.animationPlayState = running?'paused' : 'running';
         }else{
           playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
-
+          progressBar.style.animationPlayState = running?'paused' : 'running';
           console.log('riproduco il brano con indice: ', trackIndex);
         }
       })
@@ -221,10 +230,11 @@ function createPageAlbum() {
         if(!audioPlayer.paused){
           stopAudio();
           playPauseBtn2.innerHTML = '<i class="bi bi-play-fill"></i>';
-          console.log('canzone stopppata');
+          console.log('canzone stoppata');
+          progressBar.style.animationPlayState = running?'paused' : 'running';
         }else{
           playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
-
+          progressBar.style.animationPlayState = running?'paused' : 'running';
           console.log('riproduco il brano con indice: ', trackIndex);
         }
       })
