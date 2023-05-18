@@ -1,7 +1,5 @@
-
-
-let progressBar = document.querySelector('.progress-bar')
-const running = progressBar.style.animationPlayState === 'running'
+let progressBar = document.querySelector(".progress-bar");
+const running = progressBar.style.animationPlayState === "running";
 function convertiSecondi(secondi) {
   let ore = Math.floor(secondi / 3600);
   let minuti = Math.floor((secondi % 3600) / 60);
@@ -90,9 +88,7 @@ function createPageAlbum() {
       </div>
   </div>
   `;
-
-  let albumHero = document.querySelector('.album-hero')
-  albumHero.style.background = `linear-gradient(0deg, black ,${sessionStorage.getItem('COLOR')})`
+  
   let albumCover = document.getElementById("album-cover");
   let albumTitle = document.getElementById("album-title");
   let albumInfo = document.getElementById("album-info");
@@ -113,7 +109,8 @@ function createPageAlbum() {
 
       console.log(albumData);
       //inserisco la cover dell'album
-      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" />`;
+      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" />`;
+
 
       //inserisco il titolo
       albumTitle.innerText = albumData.title;
@@ -155,7 +152,9 @@ function createPageAlbum() {
           <div class="col-11 col-md-5">
               <p class="m-0 text-light">${track.title}</p>
               <p class="track-artist-name">
-                 <a href="index.html?artistId=${track.artist.id}">${track.artist.name}</a>
+                 <a href="index.html?artistId=${track.artist.id}">${
+          track.artist.name
+        }</a>
               </p>
           </div>
           <div class="col text-end my-auto d-none d-md-block">
@@ -166,16 +165,19 @@ function createPageAlbum() {
           </div>
       </div>
       `;
+      let pluto = pippo()
+  let albumHero = document.querySelector('.album-hero')
+  albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`
       tracksArray.push(track.preview);
       });
 
       trackIndex = 0;
-      let prevBtn = document.getElementById('prev-song');
-      let playPauseBtn = document.querySelector('.play-pause-btn');
-      let nextBtn = document.getElementById('next-song');
-      let playPauseBtn2 = document.getElementById('playButton')
+      let prevBtn = document.getElementById("prev-song");
+      let playPauseBtn = document.querySelector(".play-pause-btn");
+      let nextBtn = document.getElementById("next-song");
+      let playPauseBtn2 = document.getElementById("playButton");
 
-      let playBtn = document.getElementById('play-btn')
+      let playBtn = document.getElementById("play-btn");
       console.log(playBtn);
 
       console.log(tracksArray);
@@ -183,120 +185,174 @@ function createPageAlbum() {
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
-          progressBar.style.animationPlayState = 'paused' ;
         }
       }
 
       let playSong = function (prev, artist, song, img) {
-
-        let footerDisplay = document.querySelector('footer');
-        footerDisplay.classList.remove('d-none');
+        let footerDisplay = document.querySelector("footer");
+        footerDisplay.classList.remove("d-none");
 
         playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
         playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
         console.log(prev);
-        audioPlayer = new Audio(`${prev}`)
-        audioPlayer.play()
-        artistName.innerText = song + ' | ' + artist;
-        dinamicNameArtist.innerText = artist + ' ';
+        audioPlayer = new Audio(`${prev}`);
+        audioPlayer.play();
+        artistName.innerText = song + " | " + artist;
+        dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
-        dinamicImg.classList.remove('d-none');
-        progressBar.style.animationPlayState = running?'paused' : 'running';
-        
-      playBtn.addEventListener('click', stopAudio)
-      }
+        dinamicImg.classList.remove("d-none");
+        progressBar.style.animationPlayState = running ? "paused" : "running";
 
-      playBtn.addEventListener('click', () => {
+        playBtn.addEventListener("click", stopAudio);
+      };
 
+      playBtn.addEventListener("click", () => {
         playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
 
-        playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
-      })
+        playSong(
+          albumData.tracks.data[trackIndex].preview,
+          albumData.tracks.data[trackIndex].artist.name,
+          albumData.tracks.data[trackIndex].title,
+          albumData.tracks.data[trackIndex].album["cover_small"]
+        );
+      });
 
-      playPauseBtn.addEventListener('click', () => {
-        if(!audioPlayer.paused){
+      playPauseBtn.addEventListener("click", () => {
+        if (!audioPlayer.paused) {
           stopAudio();
           playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-          console.log('canzone stoppata');
-          progressBar.style.animationPlayState = running?'paused' : 'running';
-        }else{
-          playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
-          progressBar.style.animationPlayState = running?'paused' : 'running';
-          console.log('riproduco il brano con indice: ', trackIndex);
+          console.log("canzone stoppata");
+          progressBar.style.animationPlayState = "running"
+            ? "paused"
+            : "running";
+        } else {
+          playSong(
+            albumData.tracks.data[trackIndex].preview,
+            albumData.tracks.data[trackIndex].artist.name,
+            albumData.tracks.data[trackIndex].title,
+            albumData.tracks.data[trackIndex].album["cover_small"]
+          );
+          progressBar.style.animationPlayState = running ? "paused" : "running";
+          console.log("riproduco il brano con indice: ", trackIndex);
         }
-      })
-      playPauseBtn2.addEventListener('click', () => {
-        if(!audioPlayer.paused){
+      });
+      playPauseBtn2.addEventListener("click", () => {
+        if (!audioPlayer.paused) {
           stopAudio();
           playPauseBtn2.innerHTML = '<i class="fa-solid fa-play"></i>';
-          console.log('canzone stoppata');
-          progressBar.style.animationPlayState = running?'paused' : 'running';
-        }else{
-          playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])          
-          progressBar.style.animationPlayState = running?'paused' : 'running';
-          console.log('riproduco il brano con indice: ', trackIndex);
+          console.log("canzone stoppata");
+          progressBar.style.animationPlayState = running ? "paused" : "running";
+        } else {
+          playSong(
+            albumData.tracks.data[trackIndex].preview,
+            albumData.tracks.data[trackIndex].artist.name,
+            albumData.tracks.data[trackIndex].title,
+            albumData.tracks.data[trackIndex].album["cover_small"]
+          );
+          progressBar.style.animationPlayState = running ? "paused" : "running";
+          console.log("riproduco il brano con indice: ", trackIndex);
         }
-      })
+      });
 
-      prevBtn.addEventListener('click', () => {
-        if(!audioPlayer.paused){
+      prevBtn.addEventListener("click", () => {
+        if (!audioPlayer.paused) {
           stopAudio();
           trackIndex -= 1;
-          if(trackIndex < 0){
+          if (trackIndex < 0) {
             trackIndex = tracksArray.length - 1;
 
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
-          }else{
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            console.log("sto runnando la canzone con indice: ", trackIndex);
+          } else {
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
+            console.log("sto runnando la canzone con indice: ", trackIndex);
           }
-        }else{
+        } else {
           trackIndex -= 1;
-          if(trackIndex < 0){
+          if (trackIndex < 0) {
             trackIndex = tracksArray.length - 1;
 
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
-          }else{
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            console.log("sto runnando la canzone con indice: ", trackIndex);
+          } else {
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
+            console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         }
       });
 
-      nextBtn.addEventListener('click', () => {
-        if(!audioPlayer.paused){
+      nextBtn.addEventListener("click", () => {
+        if (!audioPlayer.paused) {
           stopAudio();
           trackIndex += 1;
-          if(trackIndex > tracksArray.length - 1){
+          if (trackIndex > tracksArray.length - 1) {
             trackIndex = 0;
 
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
-          }else{
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            console.log("sto runnando la canzone con indice: ", trackIndex);
+          } else {
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
+            console.log("sto runnando la canzone con indice: ", trackIndex);
           }
-        }else{
+        } else {
           trackIndex += 1;
-          if(trackIndex > tracksArray.length - 1){
+          if (trackIndex > tracksArray.length - 1) {
             trackIndex = 0;
 
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
-          }else{
-            playSong(albumData.tracks.data[trackIndex].preview, albumData.tracks.data[trackIndex].artist.name, albumData.tracks.data[trackIndex].title, albumData.tracks.data[trackIndex].album['cover_small'])
+            console.log("sto runnando la canzone con indice: ", trackIndex);
+          } else {
+            playSong(
+              albumData.tracks.data[trackIndex].preview,
+              albumData.tracks.data[trackIndex].artist.name,
+              albumData.tracks.data[trackIndex].title,
+              albumData.tracks.data[trackIndex].album["cover_small"]
+            );
 
-            console.log('sto runnando la canzone con indice: ', trackIndex);
+            console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         }
       });
@@ -311,28 +367,30 @@ const albumID = URL.get("albumID");
 
 const URLParams = new URLSearchParams(window.location.search);
 const artistId = URLParams.get("artistId");
-const endpoint = "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId;
-const trackList = "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId + "/top?limit=50";
-
+const endpoint =
+  "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId;
+const trackList =
+  "https://striveschool-api.herokuapp.com/api/deezer/artist/" +
+  artistId +
+  "/top?limit=50";
 
 const artist = function () {
-
   fetch(endpoint)
-  .then((res) => {
-    console.log('oggetto response queen', res)
-    
-	if (res.ok) {
-      return res.json()
-    } else {
-      throw new Error("Errore nell'esecuzione della richiesta")
-    }
-  })
-  .then((artist) => {
-       console.log("Atributi dell'Artista sono", artist )
-       console.log("id ", artist.id )
-       console.log("tracklist " , artist.tracklist )
-       
-       let colTemplate = `
+    .then((res) => {
+      console.log("oggetto response queen", res);
+
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Errore nell'esecuzione della richiesta");
+      }
+    })
+    .then((artist) => {
+      console.log("Atributi dell'Artista sono", artist);
+      console.log("id ", artist.id);
+      console.log("tracklist ", artist.tracklist);
+
+      let colTemplate = `
        <!-- primo blocco -->
 
        <div id="artistThumbnail"
@@ -423,13 +481,13 @@ const artist = function () {
       </div>
 
       `;
-      let rowReference = document.getElementById('rowPrincipal') // <div class="row"></div>
-      rowReference.innerHTML += colTemplate ;
+      let rowReference = document.getElementById("rowPrincipal"); // <div class="row"></div>
+      rowReference.innerHTML += colTemplate;
       let mainCol = document.querySelector(".cards-row");
-       let hero = document.querySelector(".hero");
-       mainCol.innerHTML = ''
-       hero.classList.remove('d-lg-flex')
-       hero.classList.add('d-none')
+      let hero = document.querySelector(".hero");
+      mainCol.innerHTML = "";
+      hero.classList.remove("d-lg-flex");
+      hero.classList.add("d-none");
 
       let artName = document.getElementById("artistName");
       let followers = document.getElementById("followers");
@@ -442,40 +500,38 @@ const artist = function () {
       artImgLikes.src = artist.picture;
       artImgLikes2.src = artist.picture;
       followers.textContent = artist.nb_fan + " ascoltatori mensili";
-      artImg.style.backgroundImage = `url(${artist.picture_xl})`;    
-
-  })
-  .catch((error) => {
-        console.log(error)
-  })
+      artImg.style.backgroundImage = `url(${artist.picture_xl})`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   fetch(trackList)
-      .then((res) => {
-      console.log('oggetto response song queen', res)
+    .then((res) => {
+      console.log("oggetto response song queen", res);
 
       if (res.ok) {
-        return res.json()
+        return res.json();
       } else {
-        throw new Error("Errore nell'esecuzione della richiesta")
+        throw new Error("Errore nell'esecuzione della richiesta");
       }
-      })// fine primo then
-      .then( (tracklist) => {
-      console.log("Atributi song queen sono", tracklist)
-
+    }) // fine primo then
+    .then((tracklist) => {
+      console.log("Atributi song queen sono", tracklist);
 
       let popularList = document.getElementById("popularList");
-				popularList.innerHTML = "";
+      popularList.innerHTML = "";
 
-				tracklist.data.forEach((track) => {
-          let liElement = document.createElement("li");
-					liElement.classList.add("py-3");
-					let duration = track.duration;
-					let minutes = Math.floor(duration / 60);
-					let seconds = Math.floor(duration % 60)
-						.toString()
-						.padStart(2, "0");
-					let formattedDuration = `${minutes}:${seconds}`;
-					liElement.innerHTML = `
+      tracklist.data.forEach((track) => {
+        let liElement = document.createElement("li");
+        liElement.classList.add("py-3");
+        let duration = track.duration;
+        let minutes = Math.floor(duration / 60);
+        let seconds = Math.floor(duration % 60)
+          .toString()
+          .padStart(2, "0");
+        let formattedDuration = `${minutes}:${seconds}`;
+        liElement.innerHTML = `
 						<div class="row row-cols-3 justify-content-center">
 						<div class="col-6 fs-11 d-flex align-items-center">
 							<img src="${track.album.cover_small}" alt="cover" width="35px" class="d-none d-md-inline"/>
@@ -488,21 +544,17 @@ const artist = function () {
 							<span class="align-self-center">${formattedDuration}</span>
 						</div>
 					</div>
-				  `
-          ;
-					let heroSec = document.querySelector(".hero");
-          heroSec.classList.add('d-none')
-					popularList.appendChild(liElement);
-        })
+				  `;
+        let heroSec = document.querySelector(".hero");
+        heroSec.classList.add("d-none");
+        popularList.appendChild(liElement);
+      });
+    }) // fine del secondo then
 
-      })// fine del secondo then
-
-      .catch((error) => {
-        console.log(error)
-       })//  fine catch
-   
-} // fine funzione onload
-
+    .catch((error) => {
+      console.log(error);
+    }); //  fine catch
+}; // fine funzione onload
 
 const ALBUM_URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
@@ -544,11 +596,11 @@ const fetchAlbum = async () => {
   }
 };
 
-let artistName = document.getElementById('songTitle');
-let dinamicNameArtist = document.getElementById('dinamicNameArtist');
-let dinamicSongTitle = document.getElementById('dinamicSongTitle');
-let dinamicImg = document.getElementById('dinamicImg');
-let audioPlayer = null; 
+let artistName = document.getElementById("songTitle");
+let dinamicNameArtist = document.getElementById("dinamicNameArtist");
+let dinamicSongTitle = document.getElementById("dinamicSongTitle");
+let dinamicImg = document.getElementById("dinamicImg");
+let audioPlayer = null;
 function stopAudio() {
   if (audioPlayer) {
     audioPlayer.pause();
@@ -556,23 +608,21 @@ function stopAudio() {
 }
 
 let playSong = function (prev, artist, song, img) {
+  let footerDisplay = document.querySelector("footer");
+  footerDisplay.classList.remove("d-none");
 
-  let footerDisplay = document.querySelector('footer');
-  footerDisplay.classList.remove('d-none');
-
-  let playPauseBtn = document.querySelector('.play-pause-btn');
+  let playPauseBtn = document.querySelector(".play-pause-btn");
   playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
   console.log(prev);
-  audioPlayer = new Audio(`${prev}`)
-  audioPlayer.play()
-  artistName.innerText = song + ' | ' + artist;
-  dinamicNameArtist.innerText = artist + ' ';
+  audioPlayer = new Audio(`${prev}`);
+  audioPlayer.play();
+  artistName.innerText = song + " | " + artist;
+  dinamicNameArtist.innerText = artist + " ";
   dinamicSongTitle.innerText = song;
   dinamicImg.src = img;
-  dinamicImg.classList.remove('d-none');
-}
-
+  dinamicImg.classList.remove("d-none");
+};
 
 const bigCard = async () => {
   try {
@@ -608,103 +658,176 @@ const bigCard = async () => {
         let homeTracksIndex = 0;
 
         // inserisco le tracce dentro l'array
-        heroAlbum.tracks.data.forEach( track => {
+        heroAlbum.tracks.data.forEach((track) => {
           homeTracksArray.push(track.preview);
         });
 
         // recupero i bottoni del player
-        let prevTrackBtn = document.getElementById('prev-song');
-        let playPauseBtn = document.querySelector('.play-pause-btn');
-        let nextTrackBtn = document.getElementById('next-song');
-        let playPauseBtn2 = document.getElementById('playButton')
-        
-        playPauseBtn.addEventListener('click', () => {
-          if(!audioPlayer.paused){
+        let prevTrackBtn = document.getElementById("prev-song");
+        let playPauseBtn = document.querySelector(".play-pause-btn");
+        let nextTrackBtn = document.getElementById("next-song");
+        let playPauseBtn2 = document.getElementById("playButton");
+
+        playPauseBtn.addEventListener("click", () => {
+          if (!audioPlayer.paused) {
             stopAudio();
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
-            console.log('canzone stoppata');
-          }else{
-            playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])          
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            console.log("canzone stoppata");
+          } else {
+            playSong(
+              heroAlbum.tracks.data[homeTracksIndex].preview,
+              heroAlbum.tracks.data[homeTracksIndex].artist.name,
+              heroAlbum.tracks.data[homeTracksIndex].title,
+              heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+            );
 
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
-            console.log('riproduco il brano con indice: ', homeTracksIndex);
+            console.log("riproduco il brano con indice: ", homeTracksIndex);
           }
-        })
-      
-      playPauseBtn2.addEventListener('click', () => {
-        if(!audioPlayer.paused){
-          stopAudio();
-          playPauseBtn2.innerHTML = '<i class="fa-solid fa-play"></i>'
-          console.log('canzone stoppata');
-        }else{
-          playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])          
+        });
 
-          playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>'
+        playPauseBtn2.addEventListener("click", () => {
+          if (!audioPlayer.paused) {
+            stopAudio();
+            playPauseBtn2.innerHTML = '<i class="fa-solid fa-play"></i>';
+            console.log("canzone stoppata");
+          } else {
+            playSong(
+              heroAlbum.tracks.data[homeTracksIndex].preview,
+              heroAlbum.tracks.data[homeTracksIndex].artist.name,
+              heroAlbum.tracks.data[homeTracksIndex].title,
+              heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+            );
 
-          console.log('riproduco il brano con indice: ', homeTracksIndex);
-        }
-      })
-    
+            playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
-        prevTrackBtn.addEventListener('click', () => {
-          if(!audioPlayer.paused){
+            console.log("riproduco il brano con indice: ", homeTracksIndex);
+          }
+        });
+
+        prevTrackBtn.addEventListener("click", () => {
+          if (!audioPlayer.paused) {
             stopAudio();
             homeTracksIndex -= 1;
-            if(homeTracksIndex < 0){
+            if (homeTracksIndex < 0) {
               homeTracksIndex = homeTracksArray.length - 1;
 
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
-            }else{
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
+            } else {
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
             }
-          }else{
+          } else {
             homeTracksIndex -= 1;
-            if(homeTracksIndex < 0){
+            if (homeTracksIndex < 0) {
               homeTracksIndex = homeTracksArray.length - 1;
 
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
-            }else{
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
+            } else {
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
             }
           }
         });
 
-        nextTrackBtn.addEventListener('click', () => {
-          if(!audioPlayer.paused){
+        nextTrackBtn.addEventListener("click", () => {
+          if (!audioPlayer.paused) {
             stopAudio();
             homeTracksIndex += 1;
-            if(homeTracksIndex > homeTracksArray.length - 1){
+            if (homeTracksIndex > homeTracksArray.length - 1) {
               homeTracksIndex = 0;
 
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
-            }else{
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
+            } else {
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
             }
-          }else{
+          } else {
             homeTracksIndex += 1;
-            if(homeTracksIndex > homeTracksArray.length - 1){
+            if (homeTracksIndex > homeTracksArray.length - 1) {
               homeTracksIndex = 0;
 
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
-            }else{
-              playSong(heroAlbum.tracks.data[homeTracksIndex].preview, heroAlbum.tracks.data[homeTracksIndex].artist.name, heroAlbum.tracks.data[homeTracksIndex].title, heroAlbum.tracks.data[homeTracksIndex].album['cover_small'])
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
+            } else {
+              playSong(
+                heroAlbum.tracks.data[homeTracksIndex].preview,
+                heroAlbum.tracks.data[homeTracksIndex].artist.name,
+                heroAlbum.tracks.data[homeTracksIndex].title,
+                heroAlbum.tracks.data[homeTracksIndex].album["cover_small"]
+              );
 
-              console.log('sto runnando la canzone con indice: ', homeTracksIndex);
+              console.log(
+                "sto runnando la canzone con indice: ",
+                homeTracksIndex
+              );
             }
           }
         });
@@ -721,7 +844,6 @@ const bigCard = async () => {
   }
 };
 
-
 const getHeroCard = async () => {
   await bigCard();
 };
@@ -734,22 +856,18 @@ const fetchRandomAlbums = async () => {
 
 if (albumID) {
   createPageAlbum();
-  
-} else if( artistId)
-{
-    artist();
-}
-else {
-
+} else if (artistId) {
+  artist();
+} else {
   fetchRandomAlbums();
   getHeroCard();
 }
 
-let prevBtn = document.getElementById('prev');
-prevBtn.addEventListener('click', function(){
+let prevBtn = document.getElementById("prev");
+prevBtn.addEventListener("click", function () {
   history.back();
-})
-let nextBtn = document.getElementById('next');
-nextBtn.addEventListener('click', function(){
-  history.forward()
-})
+});
+let nextBtn = document.getElementById("next");
+nextBtn.addEventListener("click", function () {
+  history.forward();
+});

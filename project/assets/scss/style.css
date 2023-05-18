@@ -160,8 +160,7 @@ footer .progress {
 }
 footer .progress-bar {
   background-color: green;
-  animation: pippo 30s;
-  animation-play-state: paused;
+  animation: pippo 30s linear;
 }
 @keyframes pippo {
   0% {

@@ -58,7 +58,7 @@ const draw = function (img) {
   
   const pippo = function () {
     // prendo il riferimento all'immagine del dom
-    let imgReference = document.querySelector('img')
+    let imgReference = document.querySelector('.album-hero img')
   
     // creo il context 2d dell'immagine selezionata
     let context = draw(imgReference)
@@ -74,5 +74,6 @@ const draw = function (img) {
   
     // console.log del risultato
     console.log(mostRecurrentHex)
+    return mostRecurrentHex
     sessionStorage.setItem('COLOR', mostRecurrentHex)
   }
