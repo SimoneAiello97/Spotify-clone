@@ -106,7 +106,7 @@ function createPageAlbum() {
       //recupero l'anno dell'album
       fullAlbumYear = new Date(albumData["release_date"]);
       fullAlbumYear = fullAlbumYear.getFullYear();
-
+      console.log(albumData.tracks.data)
       console.log(albumData);
       //inserisco la cover dell'album
       albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" />`;
@@ -166,9 +166,9 @@ function createPageAlbum() {
       `;
           tracksArray.push(track.preview);
         
+          
       });
-
-      trackIndex = 0;
+      
       let prevBtn = document.getElementById("prev-song");
       let playPauseBtn = document.querySelector(".play-pause-btn");
       let nextBtn = document.getElementById("next-song");
@@ -179,8 +179,7 @@ function createPageAlbum() {
 
       console.log(tracksArray);
 let ultimaPosizione = 0;
-
-
+let trackIndex = 0;
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
@@ -198,13 +197,12 @@ let ultimaPosizione = 0;
         audioPlayer = new Audio(`${prev}`);
         audioPlayer.currentTime = ultimaPosizione
         audioPlayer.play();
-
+        
         artistName.innerText = song + " | " + artist;
         dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
         dinamicImg.classList.remove("d-none");
-
         playBtn.addEventListener("click", stopAudio);
       };
 
@@ -228,7 +226,7 @@ let ultimaPosizione = 0;
             ? "paused"
             : "running";
         } else {
-          playSong(
+           playSong(
             albumData.tracks.data[trackIndex].preview,
             albumData.tracks.data[trackIndex].artist.name,
             albumData.tracks.data[trackIndex].title,
