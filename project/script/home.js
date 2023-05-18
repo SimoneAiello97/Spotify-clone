@@ -168,14 +168,14 @@ function createPageAlbum() {
         let albumHero = document.querySelector(".album-hero");
         albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`;
 
-      //   const songP = document.querySelectorAll(`#songP_${index}`);
-      //   songP.forEach((element) => {
-      //     element.addEventListener("click", () => {
-      //       playSong(tracksArray[index].prev);
-      //     });
-      //     tracksArray.push(track.preview);
-      //   });
-      // });
+        const songP = document.querySelectorAll(`#songP_${index}`);
+        songP.forEach((element) => {
+          element.addEventListener("click", () => {
+            playSong(tracksArray[index].prev);
+          });
+          tracksArray.push(track.preview);
+        });
+      });
 
       trackIndex = 0;
       let prevBtn = document.getElementById("prev-song");
