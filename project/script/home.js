@@ -261,7 +261,7 @@ function createPageAlbum() {
           trackIndex -= 1;
           if (trackIndex < 0) {
             trackIndex = tracksArray.length - 1;
-
+            progressBar.classList.remove("animation").add("animation");
             playSong(
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
@@ -277,7 +277,9 @@ function createPageAlbum() {
               albumData.tracks.data[trackIndex].title,
               albumData.tracks.data[trackIndex].album["cover_small"]
             );
-
+            progressBar.style.animationPlayState = running
+              ? "paused"
+              : "running";
             console.log("sto runnando la canzone con indice: ", trackIndex);
           }
         } else {

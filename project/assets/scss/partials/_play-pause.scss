@@ -70,15 +70,8 @@ input[type="range"]::-ms-thumb {
     
     .progress-bar{
         background-color: green;
-        animation: pippo 30s linear;
-        @keyframes pippo {
-            0%{
-                width: 0%;
-            }
-            100%{
-                width: 100%;
-            }
-        }
+        
+        
     }
     .container {
         max-width: 100%;
@@ -165,5 +158,17 @@ input[type="range"]::-ms-thumb {
     #pippo {
         height: 1.5rem;
         overflow: hidden;
+    }
+}
+
+.animation {
+    animation: pippo 30s linear;
+    @keyframes pippo {
+        0%{
+            width: 0%;
+        }
+        100%{
+            width: 100%;
+        }
     }
 }
