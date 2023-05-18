@@ -146,7 +146,7 @@ function createPageAlbum() {
       <!-- inizio tracks -->
       <div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
-              <span class="pe-2">${index + 1}</span>
+              <span class="pe-2">${index += 1}</span>
           </div>
           <div class="col-11 col-md-5">
               <p id="songP" class="m-0 text-light">${track.title}</p>
@@ -164,17 +164,8 @@ function createPageAlbum() {
           </div>
       </div>
       `;
-        let pluto = pippo();
-        let albumHero = document.querySelector(".album-hero");
-        albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`;
-
-        const songP = document.querySelectorAll(`#songP_${index}`);
-        // songP.forEach((element) => {
-        //   element.addEventListener("click", () => {
-        //     playSong(tracksArray[index].prev);
-        //   });
-        //   tracksArray.push(track.preview);
-        // });
+          tracksArray.push(track.preview);
+        
       });
 
       trackIndex = 0;
@@ -187,10 +178,13 @@ function createPageAlbum() {
       console.log(playBtn);
 
       console.log(tracksArray);
+let ultimaPosizione = 0;
+
 
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
+          ultimaPosizione = audioPlayer.currentTime;
         }
       }
 
@@ -202,6 +196,7 @@ function createPageAlbum() {
         playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
         console.log(prev);
         audioPlayer = new Audio(`${prev}`);
+        audioPlayer.currentTime = ultimaPosizione
         audioPlayer.play();
 
         artistName.innerText = song + " | " + artist;
