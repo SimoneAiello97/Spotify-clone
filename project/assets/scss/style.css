@@ -102,8 +102,57 @@ main {
     bottom: 75px !important;
   }
 }
+footer input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 10px;
+  background-color: #dddddd; /* Colore dello sfondo */
+  border-radius: 5px;
+  outline: none;
+}
+footer input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 10px;
+  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+}
+footer input[type=range]::-moz-range-track {
+  height: 10px;
+  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+  border-radius: 5px;
+}
+footer input[type=range]::-ms-track {
+  height: 10px;
+  background-color: rgb(29, 185, 84); /* Colore dell'area selezionabile (range) */
+  border-radius: 5px;
+}
+footer input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+footer input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+footer input[type=range]::-ms-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
 footer .progress {
-  height: 0.8rem;
+  height: 0.2rem;
 }
 footer .progress-bar {
   background-color: green;
@@ -122,9 +171,7 @@ footer .container {
   max-width: 100%;
 }
 footer .container .row {
-  color: rgb(144, 140, 140);
-}
-footer .container .row .col {
+  color: #ededed;
   background-color: #2b2b2b;
 }
 footer .container .row .col .progressBar {
@@ -151,9 +198,24 @@ footer .container .row .col .progressBar #titleContainer #songTitle {
     transform: translateX(-100%);
   }
 }
+footer .container .row .col .btn {
+  background-color: #ffffff;
+}
+footer .container .row .col .btn:hover {
+  background-color: rgba(255, 255, 255, 0.824);
+}
+footer .container .row .col .btn i {
+  color: #2b2b2b !important;
+}
+footer .container .row .col .btn i:hover {
+  color: #2b2b2b !important;
+}
+footer .container .row .col .btn a {
+  margin: 0 !important;
+}
 footer .container .row .col a {
   color: rgb(186, 186, 186);
-  margin-right: 4px;
+  margin: 0 0.5rem;
 }
 footer .container .row .col a i:hover {
   color: rgb(29, 185, 84);
