@@ -88,11 +88,7 @@ function createPageAlbum() {
       </div>
   </div>
   `;
-
-  let albumHero = document.querySelector(".album-hero");
-  albumHero.style.background = `linear-gradient(0deg, black ,${sessionStorage.getItem(
-    "COLOR"
-  )})`;
+  
   let albumCover = document.getElementById("album-cover");
   let albumTitle = document.getElementById("album-title");
   let albumInfo = document.getElementById("album-info");
@@ -113,7 +109,8 @@ function createPageAlbum() {
 
       console.log(albumData);
       //inserisco la cover dell'album
-      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" />`;
+      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" />`;
+
 
       //inserisco il titolo
       albumTitle.innerText = albumData.title;
@@ -168,7 +165,10 @@ function createPageAlbum() {
           </div>
       </div>
       `;
-        tracksArray.push(track.preview);
+      let pluto = pippo()
+  let albumHero = document.querySelector('.album-hero')
+  albumHero.style.background = `linear-gradient(0deg, black ,${pluto})`
+      tracksArray.push(track.preview);
       });
 
       trackIndex = 0;
