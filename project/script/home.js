@@ -146,7 +146,7 @@ function createPageAlbum() {
       <!-- inizio tracks -->
       <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}')" class="singleSong"><div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
-              <span class="pe-2">${index += 1}</span>
+              <span class="index pe-2">${index += 1}</span>
           </div>
           <div class="col-11 col-md-5">
               <p id="songP" class="m-0 text-light">${track.title}</p>
@@ -177,6 +177,9 @@ function createPageAlbum() {
       let playBtn = document.getElementById("play-btn");
       console.log(playBtn);
 
+// const nuovoIndex = function (index){
+//   return trackIndex = index;
+// } 
       console.log(tracksArray);
 let ultimaPosizione = 0;
 let trackIndex = 0;
