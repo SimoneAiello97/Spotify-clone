@@ -106,7 +106,7 @@ function createPageAlbum() {
       //recupero l'anno dell'album
       fullAlbumYear = new Date(albumData["release_date"]);
       fullAlbumYear = fullAlbumYear.getFullYear();
-      console.log(albumData.tracks.data)
+      console.log(albumData.tracks.data);
       console.log(albumData);
       //inserisco la cover dell'album
       albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" onload="start()" />`;
@@ -144,9 +144,15 @@ function createPageAlbum() {
       albumData.tracks.data.forEach((track, index) => {
         trackListHeader.innerHTML += `
       <!-- inizio tracks -->
-      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}',${index})" class="singleSong"><div class="row my-2 mx-5 track">
+      <button onclick="stopAudio(); playSong('${
+        albumData.tracks.data[index].preview
+      }', '${albumData.artist.name}', '${
+          albumData.tracks.data[index].title
+        }', '${
+          albumData.cover_small
+        }',${index})" class="singleSong"><div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
-              <span class="index pe-2">${index += 1}</span>
+              <span class="index pe-2">${(index += 1)}</span>
           </div>
           <div class="col-11 col-md-5">
               <p id="songP" class="m-0 text-light">${track.title}</p>
@@ -164,11 +170,9 @@ function createPageAlbum() {
           </div>
       </div></button>
       `;
-          tracksArray.push(track.preview);
-        
-          
+        tracksArray.push(track.preview);
       });
-      
+
       let prevBtn = document.getElementById("prev-song");
       let playPauseBtn = document.querySelector(".play-pause-btn");
       let nextBtn = document.getElementById("next-song");
@@ -177,12 +181,9 @@ function createPageAlbum() {
       let playBtn = document.getElementById("play-btn");
       console.log(playBtn);
 
-// const nuovoIndex = function (index){
-//   return trackIndex = index;
-// } 
       console.log(tracksArray);
-let ultimaPosizione = 0;
-let trackIndex = 0
+      let ultimaPosizione = 0;
+      let trackIndex = 0;
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
@@ -198,15 +199,15 @@ let trackIndex = 0
         playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
         console.log(prev);
         audioPlayer = new Audio(`${prev}`);
-        audioPlayer.currentTime = ultimaPosizione
+        audioPlayer.currentTime = ultimaPosizione;
         audioPlayer.play();
-        // index = trackIndex
+        trackIndex = index;
         artistName.innerText = song + " | " + artist;
         dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
         dinamicImg.classList.remove("d-none");
-        // playBtn.addEventListener("click", stopAudio);
+        playBtn.addEventListener("click", stopAudio);
       };
 
       playBtn.addEventListener("click", () => {
@@ -230,7 +231,7 @@ let trackIndex = 0
             ? "paused"
             : "running";
         } else {
-           playSong(
+          playSong(
             albumData.tracks.data[trackIndex].preview,
             albumData.tracks.data[trackIndex].artist.name,
             albumData.tracks.data[trackIndex].title,
@@ -637,7 +638,7 @@ let playSong = function (prev, artist, song, img) {
 
   console.log(prev);
   audioPlayer = new Audio(`${prev}`);
-  audioPlayer.currentTime = ultimaPosizione
+  audioPlayer.currentTime = ultimaPosizione;
   audioPlayer.play();
   artistName.innerText = song + " | " + artist;
   dinamicNameArtist.innerText = artist + " ";
