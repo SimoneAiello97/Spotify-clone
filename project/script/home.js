@@ -109,7 +109,7 @@ function createPageAlbum() {
       console.log(albumData.tracks.data)
       console.log(albumData);
       //inserisco la cover dell'album
-      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" />`;
+      albumCover.innerHTML = `<img src="${albumData["cover_medium"]}" class="shadow-lg img-fluid me-3" crossorigin="anonymous" onload="start()" />`;
 
       //inserisco il titolo
       albumTitle.innerText = albumData.title;

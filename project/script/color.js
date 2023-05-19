@@ -56,10 +56,24 @@ const draw = function (img) {
     return ('000000' + hex).slice(-6)
   }
   
-  const pippo = function () {
-    // prendo il riferimento all'immagine del dom
-    let imgReference = document.querySelector('.album-hero img')
+  const generateImage = function () {
+    let imageSrc =
+      'https://e-cdns-images.dzcdn.net/images/artist/7f6e8be161417ad8ce8f09b45721544f/500x500-000000-80-0-0.jpg'
+    let reference = document.getElementById('container')
   
+    reference.innerHTML = `
+      <img
+        src=${imageSrc}
+        id="img"
+        crossorigin="anonymous"
+        onload="start()"
+      />`
+  }
+  
+  const start = function () {
+    // prendo il riferimento all'immagine del dom
+    let imgReference = document.querySelector('#album-cover img')
+    let backgroundAlbum = document.querySelector('#album-cover').parentNode
     // creo il context 2d dell'immagine selezionata
     let context = draw(imgReference)
   
@@ -72,8 +86,8 @@ const draw = function (img) {
     // se necessario, aggiunge degli '0' per rendere il risultato un valido colore esadecimale
     let mostRecurrentHex = pad(mostRecurrent)
   
-    // console.log del risultato
-    console.log(mostRecurrentHex)
-    return mostRecurrentHex
-    sessionStorage.setItem('COLOR', mostRecurrentHex)
+    backgroundAlbum.style.background = `linear-gradient(180deg, #0d0d0d ,#${mostRecurrentHex})`
   }
+  
+
+  
