@@ -177,7 +177,17 @@ footer {
             }
         }
     }
-
+.albumRotante{
+    animation: spin 4s linear infinite;
+    @keyframes spin {
+        from {
+          transform: rotate(0deg); /* Ruota l'elemento da 0 gradi */
+        }
+        to {
+          transform: rotate(360deg); /* Ruota l'elemento a 360 gradi */
+        }
+      }
+}
     #pippo {
         height: 1.5rem;
         overflow: hidden;

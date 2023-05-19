@@ -188,6 +188,7 @@ function createPageAlbum() {
         if (audioPlayer) {
           audioPlayer.pause();
           ultimaPosizione = audioPlayer.currentTime;
+          dinamicImg.classList.remove('albumRotante')
         }
       }
 
@@ -206,6 +207,7 @@ function createPageAlbum() {
         dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
+        dinamicImg.classList.add('albumRotante')
         dinamicImg.classList.remove("d-none");
         playBtn.addEventListener("click", stopAudio);
       };
@@ -626,6 +628,7 @@ function stopAudio() {
   if (audioPlayer) {
     audioPlayer.pause();
     ultimaPosizione = audioPlayer.currentTime;
+    dinamicImg.classList.remove('albumRotante')
   }
 }
 
@@ -644,6 +647,7 @@ let playSong = function (prev, artist, song, img) {
   dinamicNameArtist.innerText = artist + " ";
   dinamicSongTitle.innerText = song;
   dinamicImg.src = img;
+  dinamicImg.classList.add('albumRotante')
   dinamicImg.classList.remove("d-none");
 };
 
