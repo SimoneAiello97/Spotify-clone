@@ -1,8 +1,4 @@
-let loginForm = document.querySelector("form");
-let loginBtn = document.getElementById("loginBtn");
-let userName = document.getElementById("userName");
-let mainLog = document.getElementById("mainLogin");
-let users = [];
+
 
 let colTemplate = ` <!-- inizio div immagine  e primo blocco-->
 <div  id="firstBlock" class="container d-flex justify-content-center border-bottom border-1">
@@ -39,7 +35,12 @@ let colTemplate = ` <!-- inizio div immagine  e primo blocco-->
 	</form>
 </div>
 `
+let mainLog = document.getElementById("mainLogin");
 mainLog.innerHTML += colTemplate ;
+let loginForm = document.querySelector("form");
+let loginBtn = document.getElementById("loginBtn");
+let userName = document.getElementById("userName");
+let users = [];
 
 loginForm.addEventListener("submit", function (event) {
 	event.preventDefault();
@@ -48,7 +49,7 @@ loginForm.addEventListener("submit", function (event) {
 	}
 	users.push(userName.value);
 	localStorage.setItem("Username", JSON.stringify(users));
-	//window.location.href = "home.html";
+	window.location.href= 'index.html';
 });
 
 loginBtn.addEventListener("click", function () {
