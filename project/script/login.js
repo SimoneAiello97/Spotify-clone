@@ -1,7 +1,7 @@
 let loginForm = document.querySelector("form");
 let loginBtn = document.getElementById("loginBtn");
 let userName = document.getElementById("userName");
-//let mainLog = document.getElementById("mainLogin");
+let mainLog = document.getElementById("mainLogin");
 let users = [];
 
 let colTemplate = ` <!-- inizio div immagine  e primo blocco-->
