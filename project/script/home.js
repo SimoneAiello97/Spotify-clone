@@ -65,7 +65,8 @@ function createPageAlbum() {
           <div class="row mx-5">
               <div class="col fs-3">
                   <button class="bg-none" id="play-btn"><i class="bi bi-play-circle-fill fs-1 ms-1 play-button"></i></button>
-                  <i class="icon-row bi bi-heart mx-3"></i>
+                  <i class="icon-row  bi bi-heart mx-3"></i>
+                  <i class="icon-row cuore bi bi-heart-fill d-none mx-3"></i>
                   <i class="icon-row bi bi-arrow-down-circle me-3"></i>
                   <i class="icon-row bi bi-three-dots"></i>
           </div>
@@ -88,6 +89,18 @@ function createPageAlbum() {
       </div>
   </div>
   `;
+
+  let cuoreVuoto = document.querySelector('.bi-heart')
+  let cuorePieno = document.querySelector('.bi-heart-fill')
+  cuoreVuoto.addEventListener('click', () => {
+    cuoreVuoto.classList.add('d-none');
+    cuorePieno.classList.remove('d-none');
+  })
+  cuorePieno.addEventListener('click', () => {
+    cuorePieno.classList.add('d-none');
+    cuoreVuoto.classList.remove('d-none');
+  })
+
 
   let albumCover = document.getElementById("album-cover");
   let albumTitle = document.getElementById("album-title");
