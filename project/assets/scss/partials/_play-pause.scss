@@ -93,9 +93,12 @@ footer {
         .row {
             color: #ededed;
             background-color: #2b2b2b;
+            @media screen and (max-width:991px) {
+                background: none;
+            }
 
             .col {
-
+                background-color: #2b2b2b;
 
                 .progressBar {
                     width: 100%;

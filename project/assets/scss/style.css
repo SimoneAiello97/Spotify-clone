@@ -177,6 +177,14 @@ footer .container .row {
   color: #ededed;
   background-color: #2b2b2b;
 }
+@media screen and (max-width: 991px) {
+  footer .container .row {
+    background: none;
+  }
+}
+footer .container .row .col {
+  background-color: #2b2b2b;
+}
 footer .container .row .col .progressBar {
   width: 100%;
   height: 20px;
