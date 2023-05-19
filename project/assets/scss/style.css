@@ -240,7 +240,7 @@ footer .container .row .col img {
   padding: 5px;
 }
 footer .albumRotante {
-  animation: spin 4s linear infinite;
+  animation: spin 5s linear infinite;
 }
 @keyframes spin {
   from {
