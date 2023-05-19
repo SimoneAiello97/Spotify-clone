@@ -144,7 +144,7 @@ function createPageAlbum() {
       albumData.tracks.data.forEach((track, index) => {
         trackListHeader.innerHTML += `
       <!-- inizio tracks -->
-      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}')" class="singleSong"><div class="row my-2 mx-5 track">
+      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}','${index}')" class="singleSong"><div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
               <span class="index pe-2">${index += 1}</span>
           </div>
@@ -190,10 +190,11 @@ let trackIndex = 0;
         }
       }
 
-      let playSong = function (prev, artist, song, img) {
+      let playSong = function (prev, artist, song, img, index) {
         let footerDisplay = document.querySelector("footer");
         footerDisplay.classList.remove("d-none");
-
+        trackIndex = index
+        console.log(index);
         playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
         playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
         console.log(prev);
@@ -206,7 +207,7 @@ let trackIndex = 0;
         dinamicSongTitle.innerText = song;
         dinamicImg.src = img;
         dinamicImg.classList.remove("d-none");
-        playBtn.addEventListener("click", stopAudio);
+        // playBtn.addEventListener("click", stopAudio);
       };
 
       playBtn.addEventListener("click", () => {
@@ -216,7 +217,8 @@ let trackIndex = 0;
           albumData.tracks.data[trackIndex].preview,
           albumData.tracks.data[trackIndex].artist.name,
           albumData.tracks.data[trackIndex].title,
-          albumData.tracks.data[trackIndex].album["cover_small"]
+          albumData.tracks.data[trackIndex].album["cover_small"],
+          trackIndex
         );
       });
 
@@ -233,7 +235,8 @@ let trackIndex = 0;
             albumData.tracks.data[trackIndex].preview,
             albumData.tracks.data[trackIndex].artist.name,
             albumData.tracks.data[trackIndex].title,
-            albumData.tracks.data[trackIndex].album["cover_small"]
+            albumData.tracks.data[trackIndex].album["cover_small"],
+            trackIndex
           );
           progressBar.style.animationPlayState = running ? "paused" : "running";
           console.log("riproduco il brano con indice: ", trackIndex);
@@ -250,7 +253,8 @@ let trackIndex = 0;
             albumData.tracks.data[trackIndex].preview,
             albumData.tracks.data[trackIndex].artist.name,
             albumData.tracks.data[trackIndex].title,
-            albumData.tracks.data[trackIndex].album["cover_small"]
+            albumData.tracks.data[trackIndex].album["cover_small"],
+            trackIndex
           );
         }
       });
@@ -266,7 +270,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -275,7 +280,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -289,7 +295,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -298,7 +305,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -320,7 +328,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -329,7 +338,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -343,7 +353,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
@@ -352,7 +363,8 @@ let trackIndex = 0;
               albumData.tracks.data[trackIndex].preview,
               albumData.tracks.data[trackIndex].artist.name,
               albumData.tracks.data[trackIndex].title,
-              albumData.tracks.data[trackIndex].album["cover_small"]
+              albumData.tracks.data[trackIndex].album["cover_small"],
+              trackIndex
             );
 
             console.log("sto runnando la canzone con indice: ", trackIndex);
