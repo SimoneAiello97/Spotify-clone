@@ -144,7 +144,7 @@ function createPageAlbum() {
       albumData.tracks.data.forEach((track, index) => {
         trackListHeader.innerHTML += `
       <!-- inizio tracks -->
-      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}','${index}')" class="singleSong"><div class="row my-2 mx-5 track">
+      <button onclick="stopAudio(); playSong('${albumData.tracks.data[index].preview}', '${albumData.artist.name}', '${albumData.tracks.data[index].title}', '${albumData.cover_small}',${index})" class="singleSong"><div class="row my-2 mx-5 track">
           <div class="col-1 text-end my-auto">
               <span class="index pe-2">${index += 1}</span>
           </div>
@@ -182,7 +182,7 @@ function createPageAlbum() {
 // } 
       console.log(tracksArray);
 let ultimaPosizione = 0;
-let trackIndex = 0;
+let trackIndex = 0
       function stopAudio() {
         if (audioPlayer) {
           audioPlayer.pause();
@@ -193,7 +193,6 @@ let trackIndex = 0;
       let playSong = function (prev, artist, song, img, index) {
         let footerDisplay = document.querySelector("footer");
         footerDisplay.classList.remove("d-none");
-        trackIndex = index
         console.log(index);
         playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
         playPauseBtn2.innerHTML = '<i class="fa-solid fa-pause"></i>';
@@ -201,7 +200,7 @@ let trackIndex = 0;
         audioPlayer = new Audio(`${prev}`);
         audioPlayer.currentTime = ultimaPosizione
         audioPlayer.play();
-        
+        // index = trackIndex
         artistName.innerText = song + " | " + artist;
         dinamicNameArtist.innerText = artist + " ";
         dinamicSongTitle.innerText = song;
